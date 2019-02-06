@@ -40,11 +40,10 @@ void Drivetrain::InitDefaultCommand(){
 void Drivetrain::DriveMecanum(double throttle, double strafe, double turn, bool fieldCentric){
 	if (fieldCentric){
 		//field centric drive
-		robotDrive->driveCartesian(throttle, strafe, turn, Drivetrain->GetGyroAngle());
-		//robotDrive.driveCartesian(throttle, strafe, turn, Drivetrain->GetGyroAngle());
+		robotDrive->DriveCartesian(throttle, strafe, turn, GetGyroAngle());
 	} else {
 		//not field centric
-		//robotDrive.driveCartesian(throttle, strafe, turn);
+		robotDrive->DriveCartesian(throttle, strafe, turn);
 	}
 }
 
