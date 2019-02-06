@@ -4,13 +4,13 @@
 #include "commands/Drivetrain/TeleopMecanumDrive.h"
 
 Drivetrain::Drivetrain() : frc::Subsystem("Drivetrain"){
-	lf = new WPI_VictorSPX(DRIVE_MOT_LF);
-	lr = new WPI_VictorSPX(DRIVE_MOT_LR);
-	rf = new WPI_VictorSPX(DRIVE_MOT_RF);
-	rr = new WPI_VictorSPX(DRIVE_MOT_RR);
+	lf = std::make_shared<WPI_VictorSPX>(DRIVE_MOT_LF);
+	lr = std::make_shared<WPI_VictorSPX>(DRIVE_MOT_LR);
+	rf = std::make_shared<WPI_VictorSPX>(DRIVE_MOT_RF);
+	rr = std::make_shared<WPI_VictorSPX>(DRIVE_MOT_RR);
 
-	robotDrive = new MecanumDrive(lf, lr, rf, rr);
-	//robotDrive.SetExpiration(0.1);
+	robotDrive = std::make_shared<MecanumDrive>(*lf, *lr, *rf, *rr);
+	robotDrive->SetExpiration(0.1);
 
 	//invert right side
 	rf->SetInverted(true);
@@ -40,7 +40,7 @@ void Drivetrain::InitDefaultCommand(){
 void Drivetrain::DriveMecanum(double throttle, double strafe, double turn, bool fieldCentric){
 	if (fieldCentric){
 		//field centric drive
-		//robotDrive.MecanumDrive_Cartesian(throttle, strafe, turn, Drivetrain->GetGyroAngle());
+		robotDrive->driveCartesian(throttle, strafe, turn, Drivetrain->GetGyroAngle());
 		//robotDrive.driveCartesian(throttle, strafe, turn, Drivetrain->GetGyroAngle());
 	} else {
 		//not field centric

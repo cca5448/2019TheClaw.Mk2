@@ -10,11 +10,11 @@
 class Drivetrain : public frc::Subsystem
 {
 	private:
-		WPI_VictorSPX* lf;
-		WPI_VictorSPX* rf;
-		WPI_VictorSPX* lr;
-		WPI_VictorSPX* rr;
-		frc::MecanumDrive* robotDrive;
+		std::shared_ptr<WPI_VictorSPX> lf;
+		std::shared_ptr<WPI_VictorSPX> rf;
+		std::shared_ptr<WPI_VictorSPX> lr;
+		std::shared_ptr<WPI_VictorSPX> rr;
+		std::shared_ptr<MecanumDrive> robotDrive;
 		AHRS* gyro;
 
 	public:
