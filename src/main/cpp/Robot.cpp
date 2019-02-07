@@ -15,16 +15,16 @@
 std::shared_ptr<Claw> Robot::claw;
 std::shared_ptr<Climber> Robot::climber;
 std::shared_ptr<Drivetrain> Robot::drivetrain;
-//std::shared_ptr<Lift> Robot::lift;
-//std::shared_ptr<Sensors> Robot::sensors;
+std::shared_ptr<Lift> Robot::lift;
+std::shared_ptr<Sensors> Robot::sensors;
 //OI after subsystems
 std::unique_ptr<OI> Robot::oi;
 
 void Robot::RobotInit() {
 	climber.reset(new Climber());
 	drivetrain.reset(new Drivetrain());
-  //lift.reset(new Lift());
-  //sensors.reset(new Sensors());
+  lift.reset(new Lift());
+  sensors.reset(new Sensors());
   //OI always after subsystems so the command requires dont grab nullptr
 	oi.reset(new OI());
 

@@ -21,16 +21,16 @@
 #include "subsystems/Claw.h"
 #include "subsystems/Climber.h"
 #include "subsystems/Drivetrain.h"
-//#include "subsystems/Lift.h"
-//#include "subsystems/Sensors.h"
+#include "subsystems/Lift.h"
+#include "subsystems/Sensors.h"
 
 class Robot : public frc::TimedRobot {
  public:
   static std::shared_ptr<Claw> claw;
   static std::shared_ptr<Climber> climber;
   static std::shared_ptr<Drivetrain> drivetrain;
-  //static std::shared_ptr<Lift> lift;
-  //static std::shared_ptr<Sensors> sensors;
+  static std::shared_ptr<Lift> lift;
+  static std::shared_ptr<Sensors> sensors;
   
   static std::unique_ptr<OI> oi;
 
