@@ -5,8 +5,8 @@
 #include "commands/Lift/MoveLiftJointToPosition.h"
 
 MoveLiftToHC::MoveLiftToHC(){
-    frc::AddParallel(new MoveLiftJointToPosition(1,0.25));
-    frc::AddParallel(new MoveLiftJointToPosition(2,0.5));
-    frc::AddParallel(new MoveLiftJointToPosition(3,0.75));
-    frc::AddParallel(new MoveLiftJointToPosition(4,1.0));
+    AddParallel(new MoveLiftJointToPosition(1,0.25));
+    AddParallel(new MoveLiftJointToPosition(2,0.5));
+    AddParallel(new MoveLiftJointToPosition(3,0.75));
+    AddParallel(new MoveLiftJointToPosition(4,1.0));
 }

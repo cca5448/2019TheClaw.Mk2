@@ -2,7 +2,7 @@
 
 #include "frc/commands/CommandGroup.h"
 
-class StowLift: public CommandGroup
+class StowLift: public frc::CommandGroup
 {
 	public:
 		StowLift();

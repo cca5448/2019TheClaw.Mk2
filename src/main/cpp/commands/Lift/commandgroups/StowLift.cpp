@@ -5,8 +5,8 @@
 #include "commands/Lift/MoveLiftJointToPosition.h"
 
 StowLift::StowLift(){
-    frc::AddParallel(new MoveLiftJointToPosition(1,0.0));
-    frc::AddParallel(new MoveLiftJointToPosition(2,0.0));
-    frc::AddParallel(new MoveLiftJointToPosition(3,0.0));
-    frc::AddParallel(new MoveLiftJointToPosition(4,0.0));
+    AddParallel(new MoveLiftJointToPosition(1,0.0));
+    AddParallel(new MoveLiftJointToPosition(2,0.0));
+    AddParallel(new MoveLiftJointToPosition(3,0.0));
+    AddParallel(new MoveLiftJointToPosition(4,0.0));
 }
