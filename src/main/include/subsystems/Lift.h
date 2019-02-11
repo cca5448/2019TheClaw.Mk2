@@ -10,4 +10,8 @@ class Lift : public frc::Subsystem
     public:
 		Lift();
 		void InitDefaultCommand() override;
+		void SetLiftJointToPosition(short joint, double pos);
+		double GetLiftJointPosition(short joint);
+		double GetLiftJointRawPotValue(short joint);
+		bool IsLiftJointAtPosition(short joint, double pos);
 };
