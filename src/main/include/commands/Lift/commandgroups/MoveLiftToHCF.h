@@ -2,8 +2,8 @@
 
 #include "frc/commands/CommandGroup.h"
 
-class MoveLiftToHC: public frc::CommandGroup
+class MoveLiftToHCF: public frc::CommandGroup
 {
 	public:
-		MoveLiftToHC();
+		MoveLiftToHCF();
 };

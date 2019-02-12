@@ -76,12 +76,12 @@ const double LIFT_POT_OFFSET_3      = 1800.0;
 const double LIFT_POT_OFFSET_4      = 1800.0;
 //Lift System Locations
 const double LIFT_POS_STOW_1        = 1.0; //stow lift
-const double LIFT_POS_LHF_1          = 1.1; //low hatch front
-const double LIFT_POS_LCF_1          = 1.2; //low cargo front
-const double LIFT_POS_MHF_1          = 2.1; //mid hatch front
-const double LIFT_POS_MCF_1          = 2.2; //mid cargo front
-const double LIFT_POS_HHF_1          = 3.1; //high hatch front
-const double LIFT_POS_HCF_1          = 3.2; //high cargo front
+const double LIFT_POS_LHF_1         = 1.1; //low hatch front
+const double LIFT_POS_LCF_1         = 1.2; //low cargo front
+const double LIFT_POS_MHF_1         = 2.1; //mid hatch front
+const double LIFT_POS_MCF_1         = 2.2; //mid cargo front
+const double LIFT_POS_HHF_1         = 3.1; //high hatch front
+const double LIFT_POS_HCF_1         = 3.2; //high cargo front
 
 //MANIPULATOR
 //Claw System Servo PWM IDs - Rev Smart Servo
