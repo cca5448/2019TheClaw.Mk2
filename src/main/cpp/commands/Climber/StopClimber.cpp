@@ -3,7 +3,7 @@
 
 StopClimber::StopClimber()
 {
-	Requires(Robot::climber.get()); //requires the shooter subsystem
+	//Requires(Robot::climber.get()); //requires the shooter subsystem
 }
 
 void StopClimber::Initialize()

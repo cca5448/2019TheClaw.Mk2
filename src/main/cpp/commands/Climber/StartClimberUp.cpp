@@ -3,7 +3,7 @@
 
 StartClimberFwd::StartClimberFwd()
 {
-	Requires(Robot::climber.get());
+	//Requires(Robot::climber.get());
 }
 
 void StartClimberFwd::Initialize()

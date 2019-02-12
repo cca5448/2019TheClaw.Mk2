@@ -6,10 +6,6 @@
 //#include "Commands/Climber/StartClimberUp.h"
 //#include "Commands/Climber/StartClimberDown.h"
 //#include "Commands/Climber/StopClimber.h"
-//#include "Commands/Shooter/StartShooter.h"
-//#include "Commands/Shooter/StopShooter.h"
-//#include "Commands/Shooter/AdvanceShooter.h"
-//#include "Commands/Shooter/AdvanceShooterStop.h"
 
 double OI::DeadZone(double axisVal)
 {

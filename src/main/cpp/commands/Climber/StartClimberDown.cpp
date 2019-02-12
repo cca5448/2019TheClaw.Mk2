@@ -3,7 +3,7 @@
 
 StartClimberRev::StartClimberRev()
 {
-	Requires(Robot::climber.get());
+	//Requires(Robot::climber.get());
 }
 
 void StartClimberRev::Initialize()
