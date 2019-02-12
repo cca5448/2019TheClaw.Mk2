@@ -11,7 +11,7 @@
 //#include "Commands/Shooter/AdvanceShooter.h"
 //#include "Commands/Shooter/AdvanceShooterStop.h"
 
-double DeadZone(double axisVal)
+double OI::DeadZone(double axisVal)
 {
 	//if the axisVal is in the deadzone defined in robotmap.h, return 0.0 instead
 	if (axisVal >= -JOYSTICK_DEADZONE && axisVal <= JOYSTICK_DEADZONE) {
@@ -20,7 +20,7 @@ double DeadZone(double axisVal)
 	return axisVal;
 }
 
-double SteeringDeadZone(double uval)
+double OI::SteeringDeadZone(double uval)
 {
 	double f_absval, f_offset, f_uval, f_pow;
     //if we are less than 0, then save an inversion for the end
@@ -41,7 +41,7 @@ double SteeringDeadZone(double uval)
 	return f_uval;
 }
 
-double RampingDeadZone(double uval)
+double OI::RampingDeadZone(double uval)
 {
 	//This uses math to ramp the throttle starting at the deadzone edge, rather than
 	//just starting at the value of the end of the deadzone
@@ -74,7 +74,7 @@ double RampingDeadZone(double uval)
 	 */
 }
 
-double InputShape(double userValue)
+double OI::InputShape(double userValue)
 {
 	//This maps the axis value to a 0-255 number, where 127 is neutral
 	double iUserValue;
@@ -137,22 +137,22 @@ OI::OI()
 
 double OI::GetThrottleAxis(){
 	//method will return the drive throttle axis
-	//return -(InputShape(DeadZone(drive_stick_throttle->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE))));
-	return -drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE);
+	return -1 * (RampingDeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE)));
+	//return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE);
 }
 double OI::GetStrafeAxis(){
 	//method will return the strafe axis
-	//return -(InputShape(DeadZone(drive_stick_strafe->GetRawAxis(JOY_DRIVE_AXIS_STRAFE))));
-	return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE);
+	return 1 * (RampingDeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE)));
+	//return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE);
 }
 double OI::GetTurnAxis(){
 	//method will return the turn axis
-	//return -(InputShape(DeadZone(steer_stick_turn->GetRawAxis(JOY_STEER_AXIS_TURN))));
-	return steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN);
+	return 1 * (DeadZone(steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN)));
+	//return steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN);
 }
 double OI::GetLiftAxis(){
 	//method will return the lift adjust axis
-	//return -(InputShape(DeadZone(steer_stick_lift->GetRawAxis(JOY_LIFT_AXIS_LIFT))));
-	return lift_stick->GetRawAxis(JOY_LIFT_AXIS_LIFT);
+	return -1 * (DeadZone(lift_stick->GetRawAxis(JOY_LIFT_AXIS_LIFT)));
+	//return lift_stick->GetRawAxis(JOY_LIFT_AXIS_LIFT);
 }
 
