@@ -6,8 +6,8 @@
 class Claw : public frc::Subsystem
 {
 	private:
-        frc::Servo * claw_motor;
-        frc::AnalogPotentiometer * claw_pot;
+        std::shared_ptr<frc::Servo> claw_motor;
+        std::shared_ptr<frc::AnalogPotentiometer> claw_pot;
 
 	public:
 		Claw();

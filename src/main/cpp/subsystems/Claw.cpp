@@ -2,8 +2,8 @@
 #include "RobotMap.h"
 
 Claw::Claw() : frc::Subsystem("Claw"){
-	claw_motor = new frc::Servo(CLAW_MOT_1);
-    claw_pot = new frc::AnalogPotentiometer(CLAW_POT_1,3600,CLAW_POT_OFFSET_1);
+	claw_motor.reset(new frc::Servo(CLAW_MOT_1));
+    claw_pot.reset(new frc::AnalogPotentiometer(CLAW_POT_1,3600,CLAW_POT_OFFSET_1));
 }
 
 void Claw::InitDefaultCommand(){
@@ -30,9 +30,9 @@ void Claw::MoveClawToEmerHatchRelease(){
     //Close the claw until claw pot value is at or less than recorded min value
 }
 
-double GetClawPotValue(){
+double Claw::GetClawPotValue(){
     //Read the analogpot value and return the corrected value
-    return 0.0; //claw_pot->get();
+    return claw_pot->Get();
 }
 
 
