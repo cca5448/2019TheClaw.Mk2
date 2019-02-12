@@ -10,23 +10,23 @@ void Claw::InitDefaultCommand(){
 	//SetDefaultCommand(new Climb());
 }
 
-void Claw::ClawFullClose(){
+void Claw::MoveClawToFullClose(){
     //Close claw until claw pot value is less than recorded close value
 }
 
-void Claw::ClawCaptureHatch(){
+void Claw::MoveClawToCaptureHatch(){
     //Open the claw until claw pot value is at or more than recorded capture value
 }
 
-void Claw::ClawFullOpen(){
+void Claw::MoveClawToFullOpen(){
     //Open the claw until claw pot value is at the max value
 }
 
-void Claw::ClawCaptureCargo(){
+void Claw::MoveClawToCaptureCargo(){
     //Close the claw until claw pot value is at or below the recorded capture value
 }
 
-void Claw::ClawEmergencyHatchRelease(){
+void Claw::MoveClawToEmerHatchRelease(){
     //Close the claw until claw pot value is at or less than recorded min value
 }
 
