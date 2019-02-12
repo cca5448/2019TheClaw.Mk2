@@ -3,7 +3,7 @@
 
 Claw::Claw() : frc::Subsystem("Claw"){
 	claw_motor = new frc::Servo(CLAW_MOT_1);
-    claw_pot = new frc::AnalogPotentiometer(CLAW_POT_1);
+    claw_pot = new frc::AnalogPotentiometer(CLAW_POT_1,3600,CLAW_POT_OFFSET_1);
 }
 
 void Claw::InitDefaultCommand(){
@@ -32,7 +32,7 @@ void Claw::MoveClawToEmerHatchRelease(){
 
 double GetClawPotValue(){
     //Read the analogpot value and return the corrected value
-    return 0.0;
+    return claw_pot->get();
 }
 
 

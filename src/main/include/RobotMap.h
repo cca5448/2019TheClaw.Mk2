@@ -67,25 +67,25 @@ const unsigned short LIFT_POT_1     = 1;
 const unsigned short LIFT_POT_2     = 2;
 const unsigned short LIFT_POT_3     = 3;
 const unsigned short LIFT_POT_4     = 4;
-//Lift System Sensor Pots Voltage offset
-const double LIFT_POT_OFFSET_1      = 0.0;
-const double LIFT_POT_OFFSET_2      = 0.0;
-const double LIFT_POT_OFFSET_3      = 0.0;
-const double LIFT_POT_OFFSET_4      = 0.0;
+//Lift System Sensor Pots offset in degrees
+const double LIFT_POT_OFFSET_1      = 1800.0;
+const double LIFT_POT_OFFSET_2      = 1800.0;
+const double LIFT_POT_OFFSET_3      = 1800.0;
+const double LIFT_POT_OFFSET_4      = 1800.0;
 
 //MANIPULATOR
 //Claw System Servo PWM IDs - Rev Smart Servo
 const unsigned short CLAW_MOT_1     = 1;
 //Claw System Sensor Pots Analog IDs - 10-turn 10k linear
 const unsigned short CLAW_POT_1     = 5;
-//Claw System Sensor Pots Voltage offset
-const double CLAW_POT_OFFSET_1      = 0.0;
+//Claw System Sensor Pots offset in degrees
+const double CLAW_POT_OFFSET_1      = 1800.0; //degrees to offset the pot
 //Claw Sensor Pot Position Values
-const double CLAW_POT_VAL_EHR         = 0.0; //Emergency Hatch Release
-const double CLAW_POT_VAL_FC          = 0.0; //Full Closed
-const double CLAW_POT_VAL_CH          = 0.0; //Capture Hatch
-const double CLAW_POT_VAL_CC          = 0.0; //Capture Cargo
-const double CLAW_POT_VAL_FO          = 0.0; //Full Open
+const double CLAW_POT_VAL_EHR         = 0; //Emergency Hatch Release
+const double CLAW_POT_VAL_FC          = 0; //Full Closed
+const double CLAW_POT_VAL_CH          = 0; //Capture Hatch
+const double CLAW_POT_VAL_CC          = 0; //Capture Cargo
+const double CLAW_POT_VAL_FO          = 0; //Full Open
  
 //CLIMBER
 //Motor CAN IDs - Talon SRX
