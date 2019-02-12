@@ -18,10 +18,9 @@ class OI
 		double InputShape(double userValue);
 
 		//create joystick objects
-		std::shared_ptr<frc::Joystick> drive_stick_throttle;
-		std::shared_ptr<frc::Joystick> drive_stick_strafe;
-		std::shared_ptr<frc::Joystick> steer_stick_turn;
-		std::shared_ptr<frc::Joystick> steer_stick_lift;
+		std::shared_ptr<frc::Joystick> drive_stick;
+		std::shared_ptr<frc::Joystick> steer_stick;
+		std::shared_ptr<frc::Joystick> lift_stick;
 		std::shared_ptr<frc::Joystick> l_buttons; //left set of buttons
 		std::shared_ptr<frc::Joystick> r_buttons; //right set of buttons
 

@@ -32,7 +32,7 @@ void Claw::MoveClawToEmerHatchRelease(){
 
 double GetClawPotValue(){
     //Read the analogpot value and return the corrected value
-    return claw_pot->get();
+    return 0.0; //claw_pot->get();
 }
 
 

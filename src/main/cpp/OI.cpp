@@ -91,10 +91,9 @@ OI::OI()
 {
 	//constants are from RobotMap.h
 	//joysticks
-	drive_stick_throttle.reset(new frc::Joystick(JOY_DRIVE_AXIS_THROTTLE));
-	drive_stick_strafe.reset(new frc::Joystick(JOY_DRIVE_AXIS_STRAFE));
-	steer_stick_turn.reset(new frc::Joystick(JOY_STEER_AXIS_TURN));
-	steer_stick_lift.reset(new frc::Joystick(JOY_LIFT_AXIS_LIFT));
+	drive_stick.reset(new frc::Joystick(JOY_DRIVE));
+	steer_stick.reset(new frc::Joystick(JOY_STEER));
+	lift_stick.reset(new frc::Joystick(JOY_LIFT));
 	r_buttons.reset(new frc::Joystick(JOY_RIGHT));
 	l_buttons.reset(new frc::Joystick(JOY_LEFT));
 
@@ -139,21 +138,21 @@ OI::OI()
 double OI::GetThrottleAxis(){
 	//method will return the drive throttle axis
 	//return -(InputShape(DeadZone(drive_stick_throttle->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE))));
-	return drive_stick_throttle->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE);
+	return -drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE);
 }
 double OI::GetStrafeAxis(){
 	//method will return the strafe axis
 	//return -(InputShape(DeadZone(drive_stick_strafe->GetRawAxis(JOY_DRIVE_AXIS_STRAFE))));
-	return drive_stick_strafe->GetRawAxis(JOY_DRIVE_AXIS_STRAFE);
+	return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE);
 }
 double OI::GetTurnAxis(){
 	//method will return the turn axis
 	//return -(InputShape(DeadZone(steer_stick_turn->GetRawAxis(JOY_STEER_AXIS_TURN))));
-	return steer_stick_turn->GetRawAxis(JOY_STEER_AXIS_TURN);
+	return steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN);
 }
 double OI::GetLiftAxis(){
 	//method will return the lift adjust axis
 	//return -(InputShape(DeadZone(steer_stick_lift->GetRawAxis(JOY_LIFT_AXIS_LIFT))));
-	return steer_stick_lift->GetRawAxis(JOY_LIFT_AXIS_LIFT);
+	return lift_stick->GetRawAxis(JOY_LIFT_AXIS_LIFT);
 }
 
