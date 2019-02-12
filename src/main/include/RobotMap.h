@@ -7,8 +7,10 @@ const float JOYSTICK_DEADZONE = 0.25; //dead zone
 const float JOYSTICK_RAMP_POWER = 1.1; //speed ramp power - this is for proportionalAxis
 const float CLIMB_MOT_SPEED_CLIMB = 0.5; //speed of climber climb motor
 const float CLIMB_MOT_SPEED_DRIVE = 0.5; //speed of climber drive motor
+const double LIFT_JOINT_KP = 5.0; //PID P proportional constant for lift joints
+const double LIFT_JOINT_KI = 0.0; //PID I for lift joints
+const double LIFT_JOINT_KD = 0.0; //PID D for lift joints
 static const float GYRO_KP = 0.03;
-
 
 //DRIVER STATION
 //Joysticks
@@ -72,6 +74,14 @@ const double LIFT_POT_OFFSET_1      = 1800.0;
 const double LIFT_POT_OFFSET_2      = 1800.0;
 const double LIFT_POT_OFFSET_3      = 1800.0;
 const double LIFT_POT_OFFSET_4      = 1800.0;
+//Lift System Locations
+const double LIFT_POS_STOW_1        = 1.0; //stow lift
+const double LIFT_POS_LHF_1          = 1.1; //low hatch front
+const double LIFT_POS_LCF_1          = 1.2; //low cargo front
+const double LIFT_POS_MHF_1          = 2.1; //mid hatch front
+const double LIFT_POS_MCF_1          = 2.2; //mid cargo front
+const double LIFT_POS_HHF_1          = 3.1; //high hatch front
+const double LIFT_POS_HCF_1          = 3.2; //high cargo front
 
 //MANIPULATOR
 //Claw System Servo PWM IDs - Rev Smart Servo

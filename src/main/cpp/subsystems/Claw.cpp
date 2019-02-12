@@ -34,5 +34,3 @@ double Claw::GetClawPotValue(){
     //Read the analogpot value and return the corrected value
     return claw_pot->Get();
 }
-
-
