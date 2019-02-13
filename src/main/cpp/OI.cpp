@@ -1,4 +1,4 @@
-//#include <math.h>
+#include <math.h>
 #include "OI.h"
 #include "RobotMap.h"
 #include <frc/WPILib.h>
@@ -30,13 +30,13 @@
 */
 #include "commands/Lift/commandgroups/StowLift.h"
 
-double OI::DeadZone(double axisVal)
+double OI::DeadZone(double uval)
 {
-	//if the axisVal is in the deadzone defined in robotmap.h, return 0.0 instead
-	if (axisVal >= -JOYSTICK_DEADZONE && axisVal <= JOYSTICK_DEADZONE) {
+	//if the uval is in the deadzone defined in robotmap.h, return 0.0 instead
+	if (uval >= -JOYSTICK_DEADZONE && uval <= JOYSTICK_DEADZONE) {
 		return 0.0;
 	}
-	return axisVal;
+	return uval;
 }
 
 double OI::SteeringDeadZone(double uval)
@@ -91,19 +91,6 @@ double OI::RampingDeadZone(double uval)
 	 * a=0.3 //deadzone of 0.3
 	 * n=1+a (multiplier to account for dead zone)
 	 */
-}
-
-double OI::InputShape(double userValue)
-{
-	//This maps the axis value to a 0-255 number, where 127 is neutral
-	double iUserValue;
-	iUserValue = (double)userValue * 127;
-	iUserValue += 127;
-	//iUserValue = inputShape[iUserValue];
-	//SmartDashboard::PutNumber("iUserValue",iUserValue);
-	userValue = iUserValue - 127;
-	userValue /= 127;
-	return userValue;
 }
 
 OI::OI()

@@ -12,10 +12,9 @@ class OI
 		double GetLiftAxis(); //returns the axis for lift adjustment
 	private:
 		//private functions
-		double DeadZone(double axisVal);
+		double DeadZone(double uval);
 		double SteeringDeadZone(double uval);
 		double RampingDeadZone(double uval);
-		double InputShape(double userValue);
 
 		//create joystick objects
 		std::shared_ptr<frc::Joystick> drive_stick;
