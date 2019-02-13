@@ -8,7 +8,7 @@ class LiftJoint1 : public frc::PIDSubsystem
 {
     public:
 		std::shared_ptr<WPI_TalonSRX> LiftJoint1_Motor;
-		std::shared_ptr<frc::Potentiometer> LiftJoint1_Pot;
+		std::shared_ptr<frc::AnalogPotentiometer> LiftJoint1_Pot;
 
 		LiftJoint1();
 		void InitDefaultCommand() override;
