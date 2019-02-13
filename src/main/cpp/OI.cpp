@@ -3,9 +3,32 @@
 #include "RobotMap.h"
 #include <frc/WPILib.h>
 
-//#include "Commands/Climber/StartClimberUp.h"
-//#include "Commands/Climber/StartClimberDown.h"
-//#include "Commands/Climber/StopClimber.h"
+//claw
+//#include "commands/Claw/ClawCaptureCargo.h"
+//#include "commands/Claw/ClawCaptureHatch.h"
+//#include "commands/Claw/ClawEmerHatchRelease.h"
+//#include "commands/Claw/ClawFullClose.h"
+//#include "commands/Claw/ClawFullOpen.h"
+//climber
+//#include "commands/Climber/StartClimberUp.h"
+//#include "commands/Climber/StartClimberDown.h"
+//#include "commands/Climber/StopClimber.h"
+//lift
+#include "commands/Lift/commandgroups/MoveLiftToHCF.h"
+#include "commands/Lift/commandgroups/MoveLiftToHHF.h"
+#include "commands/Lift/commandgroups/MoveLiftToMCF.h"
+#include "commands/Lift/commandgroups/MoveLiftToMHF.h"
+#include "commands/Lift/commandgroups/MoveLiftToLCF.h"
+#include "commands/Lift/commandgroups/MoveLiftToLHF.h"
+/*
+#include "commands/Lift/commandgroups/MoveLiftToHCB.h"
+#include "commands/Lift/commandgroups/MoveLiftToHHB.h"
+#include "commands/Lift/commandgroups/MoveLiftToMCB.h"
+#include "commands/Lift/commandgroups/MoveLiftToMHB.h"
+#include "commands/Lift/commandgroups/MoveLiftToLCB.h"
+#include "commands/Lift/commandgroups/MoveLiftToLHB.h"
+*/
+#include "commands/Lift/commandgroups/StowLift.h"
 
 double OI::DeadZone(double axisVal)
 {
@@ -94,41 +117,67 @@ OI::OI()
 	l_buttons.reset(new frc::Joystick(JOY_LEFT));
 
 	//left button definitions
-	//intake_in_btn = new frc::JoystickButton(l_buttons,BTN_INTAKE_IN);
-	//intake_stop_btn = new frc::JoystickButton(l_buttons,BTN_INTAKE_STOP);
-	//intake_out_btn = new frc::JoystickButton(l_buttons,BTN_INTAKE_OUT);
-	//auton_next = new frc::JoystickButton(l_buttons,BTN_AUTON_NEXT);
-	//auton_prev = new frc::JoystickButton(l_buttons,BTN_AUTON_PREV);
+	//front
+	button_lift_hc_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_HCF));
+	button_lift_hh_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_HHF));
+	button_lift_mc_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_MCF));
+	button_lift_mh_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_MHF));
+	button_lift_lc_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_LCF));
+	button_lift_lh_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_LHF));
+	//back
+	button_lift_hc_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_HCB));
+	button_lift_hh_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_HHB));
+	button_lift_mc_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_MCB));
+	button_lift_mh_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_MHB));
+	button_lift_lc_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_LCB));
+	button_lift_lh_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_LHB));
+	//other
+	button_cam_aa.reset(new frc::JoystickButton(l_buttons.get(),BTN_CAM_AA));
 
 	//right button definitions
-	//climber_up = new frc::JoystickButton(r_buttons,BTN_CLIMB_UP);
-	//climber_down = new frc::JoystickButton(r_buttons,BTN_CLIMB_DOWN);
-	//climber_stop = new frc::JoystickButton(r_buttons,BTN_CLIMB_STOP);
-	//camera_toggle = new frc::JoystickButton(r_buttons,BTN_CAM_TOGGLE);
-	//shooter_toggle_btn = new frc::JoystickButton(r_buttons,BTN_SHOOTER_UP);
-	//shooter_stop_btn = new frc::JoystickButton(r_buttons,BTN_SHOOTER_STOP);
-	//shooter_start_btn = new frc::JoystickButton(r_buttons,BTN_SHOOTER_START);
-	//shooter_adv_btn = new frc::JoystickButton(r_buttons,BTN_SHOOTER_ADV);
+	//claw
+	button_claw_cc.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_CC));
+	button_claw_ch.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_CH));
+	button_claw_fc.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_FC));
+	button_claw_fo.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_FO));
+	button_claw_ehr.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_EHR));
+	//climber
+	button_end_dn.reset(new frc::JoystickButton(r_buttons.get(),BTN_ENDGAME_DN));
+	button_end_dnall.reset(new frc::JoystickButton(r_buttons.get(),BTN_ENDGAME_DNALL));
+	button_end_up.reset(new frc::JoystickButton(r_buttons.get(),BTN_ENDGAME_UP));
+	//lighting
+	button_light_mu.reset(new frc::JoystickButton(r_buttons.get(),BTN_LIGHT_MODEUP));
+	button_light_md.reset(new frc::JoystickButton(r_buttons.get(),BTN_LIGHT_MODEDN));
 
-
-	//auton_next->ToggleWhenPressed(new NextAuton()); //Next Auton Mode
-	//auton_prev->ToggleWhenPressed(new PrevAuton()); //Prev Auton Mode
-	//camera_toggle->ToggleWhenPressed(new CameraToggle());
-
-	//climber buttons
-	//climber_up->ToggleWhenPressed(new StartClimberUp());
-	//climber_down->ToggleWhenPressed(new StartClimberDown());
-	//climber_stop->ToggleWhenPressed(new StopClimber());
-//samplebutton = new frc::JoystickButton(r_buttons,1);
-//samplebutton->WhenPressed(new command());
-//samplebutton->WhenReleased(new command());
-//samplebutton->ToggleWhenPressed(new command());
-	//shooter button actions
-	//shooter_toggle_btn->WhenPressed(new ToggleShooter());
-	//shooter_stop_btn->WhenPressed(new StopShooter());
-	//shooter_start_btn->WhenPressed(new StartShooter());
-	//shooter_adv_btn->WhenPressed(new AdvanceShooter());
-	//shooter_adv_btn->WhenReleased(new AdvanceShooterStop());
+	//assign commands to buttons
+	//lift front
+	button_lift_hc_front->WhenPressed(new MoveLiftToHCF());
+	button_lift_hh_front->WhenPressed(new MoveLiftToHHF());
+	button_lift_mc_front->WhenPressed(new MoveLiftToMCF());
+	button_lift_mh_front->WhenPressed(new MoveLiftToMHF());
+	button_lift_lc_front->WhenPressed(new MoveLiftToLCF());
+	button_lift_lh_front->WhenPressed(new MoveLiftToLHF());
+	//lift back
+	//button_lift_hc_back->WhenPressed(new MoveLiftToHCB());
+	//button_lift_hh_back->WhenPressed(new MoveLiftToHHB());
+	//button_lift_mc_back->WhenPressed(new MoveLiftToMCB());
+	//button_lift_mh_back->WhenPressed(new MoveLiftToMHB());
+	//button_lift_lc_back->WhenPressed(new MoveLiftToLCB());
+	//button_lift_lh_back->WhenPressed(new MoveLiftToLHB());
+	//claw
+	//button_claw_cc->WhenPressed(new ClawCaptureCargo());
+	//button_claw_ch->WhenPressed(new ClawCaptureHatch());
+	//button_claw_fc->WhenPressed(new ClawFullClosed());
+	//button_claw_fo->WhenPressed(new ClawFullOpen());
+	//button_claw_ehr->WhenPressed(new ClawEmerHatchRelease());
+	//climber
+	//button_end_dn->WhenPressed(new ClimberDown());
+	//button_end_dnall->WhenPressed(new ClimberDownAll());
+	//button_end_up->WhenPressed(new ClimberUp());
+	//other
+	//button_cam_aa->WhenPressed(new AimAssist());
+	//button_light_md->WhenPressed(new LightModeDown());
+	//button_light_mu->WhenPressed(new LightModeUp());
 }
 
 double OI::GetThrottleAxis(){

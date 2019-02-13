@@ -26,30 +26,30 @@ class OI
 
 		//create buttons for control
 		//lift
-		frc::JoystickButton * button_lift_lh_front; //low hatch front
-		frc::JoystickButton * button_lift_mh_front; //mid hatch front
-		frc::JoystickButton * button_lift_hh_front; //high hatch front
-		frc::JoystickButton * button_lift_lc_front; //low cargo front
-		frc::JoystickButton * button_lift_mc_front; //mid cargo front
-		frc::JoystickButton * button_lift_hc_front; //high cargo front
-		frc::JoystickButton * button_lift_lh_back; //low hatch back
-		frc::JoystickButton * button_lift_mh_back; //mid hatch back
-		frc::JoystickButton * button_lift_hh_back; //high hatch back
-		frc::JoystickButton * button_lift_lc_back; //low cargo back
-		frc::JoystickButton * button_lift_mc_back; //mid cargo back
-		frc::JoystickButton * button_lift_hc_back; //high cargo back
+		std::shared_ptr<frc::JoystickButton> button_lift_lh_front; //low hatch front
+		std::shared_ptr<frc::JoystickButton> button_lift_mh_front; //mid hatch front
+		std::shared_ptr<frc::JoystickButton> button_lift_hh_front; //high hatch front
+		std::shared_ptr<frc::JoystickButton> button_lift_lc_front; //low cargo front
+		std::shared_ptr<frc::JoystickButton> button_lift_mc_front; //mid cargo front
+		std::shared_ptr<frc::JoystickButton> button_lift_hc_front; //high cargo front
+		std::shared_ptr<frc::JoystickButton> button_lift_lh_back; //low hatch back
+		std::shared_ptr<frc::JoystickButton> button_lift_mh_back; //mid hatch back
+		std::shared_ptr<frc::JoystickButton> button_lift_hh_back; //high hatch back
+		std::shared_ptr<frc::JoystickButton> button_lift_lc_back; //low cargo back
+		std::shared_ptr<frc::JoystickButton> button_lift_mc_back; //mid cargo back
+		std::shared_ptr<frc::JoystickButton> button_lift_hc_back; //high cargo back
 		//claw
-		frc::JoystickButton * button_claw_fo; //full open
-		frc::JoystickButton * button_claw_cc; //capture cargo
-		frc::JoystickButton * button_claw_fc; //full closed
-		frc::JoystickButton * button_claw_ch; //capture hatch
-		frc::JoystickButton * button_claw_ehr; //emergency hatch release (full close + safe zone)
+		std::shared_ptr<frc::JoystickButton> button_claw_fo; //full open
+		std::shared_ptr<frc::JoystickButton> button_claw_cc; //capture cargo
+		std::shared_ptr<frc::JoystickButton> button_claw_fc; //full closed
+		std::shared_ptr<frc::JoystickButton> button_claw_ch; //capture hatch
+		std::shared_ptr<frc::JoystickButton> button_claw_ehr; //emergency hatch release (full close + safe zone)
 		//other
-		frc::JoystickButton * button_cam_aa; //aim assist
-		frc::JoystickButton * button_end_up; //extend both sides
-		frc::JoystickButton * button_end_dn; //retract close side
-		frc::JoystickButton * button_end_dnall; //retract both sides
-		frc::JoystickButton * button_light_mu; //light mode up
-		frc::JoystickButton * button_light_md; //light mode down
+		std::shared_ptr<frc::JoystickButton> button_cam_aa; //aim assist
+		std::shared_ptr<frc::JoystickButton> button_end_up; //extend both sides
+		std::shared_ptr<frc::JoystickButton> button_end_dn; //retract close side
+		std::shared_ptr<frc::JoystickButton> button_end_dnall; //retract both sides
+		std::shared_ptr<frc::JoystickButton> button_light_mu; //light mode up
+		std::shared_ptr<frc::JoystickButton> button_light_md; //light mode down
 };
 
