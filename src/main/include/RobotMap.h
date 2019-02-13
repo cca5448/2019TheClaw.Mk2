@@ -74,14 +74,38 @@ const double LIFT_POT_OFFSET_1      = 1800.0;
 const double LIFT_POT_OFFSET_2      = 1800.0;
 const double LIFT_POT_OFFSET_3      = 1800.0;
 const double LIFT_POT_OFFSET_4      = 1800.0;
-//Lift System Locations
-const double LIFT_POS_STOW_1        = 1.0; //stow lift
-const double LIFT_POS_LHF_1         = 1.1; //low hatch front
-const double LIFT_POS_LCF_1         = 1.2; //low cargo front
-const double LIFT_POS_MHF_1         = 2.1; //mid hatch front
-const double LIFT_POS_MCF_1         = 2.2; //mid cargo front
-const double LIFT_POS_HHF_1         = 3.1; //high hatch front
-const double LIFT_POS_HCF_1         = 3.2; //high cargo front
+//Lift Joint 1 Locations
+const double LIFT_POS_STOW_1        = 0.50; //stow lift
+const double LIFT_POS_LHF_1         = 0.50; //low hatch front
+const double LIFT_POS_LCF_1         = 0.55; //low cargo front
+const double LIFT_POS_MHF_1         = 0.70; //mid hatch front
+const double LIFT_POS_MCF_1         = 0.75; //mid cargo front
+const double LIFT_POS_HHF_1         = 0.80; //high hatch front
+const double LIFT_POS_HCF_1         = 0.85; //high cargo front
+//Lift Joint 2 Locations
+const double LIFT_POS_STOW_2        = 0.50; //stow lift
+const double LIFT_POS_LHF_2         = 0.50; //low hatch front
+const double LIFT_POS_LCF_2         = 0.55; //low cargo front
+const double LIFT_POS_MHF_2         = 0.70; //mid hatch front
+const double LIFT_POS_MCF_2         = 0.75; //mid cargo front
+const double LIFT_POS_HHF_2         = 0.80; //high hatch front
+const double LIFT_POS_HCF_2         = 0.85; //high cargo front
+//Lift Joint 3 Locations
+const double LIFT_POS_STOW_3        = 0.50; //stow lift
+const double LIFT_POS_LHF_3         = 0.50; //low hatch front
+const double LIFT_POS_LCF_3         = 0.55; //low cargo front
+const double LIFT_POS_MHF_3         = 0.70; //mid hatch front
+const double LIFT_POS_MCF_3         = 0.75; //mid cargo front
+const double LIFT_POS_HHF_3         = 0.80; //high hatch front
+const double LIFT_POS_HCF_3         = 0.85; //high cargo front
+//Lift Joint 4 Locations
+const double LIFT_POS_STOW_4        = 0.50; //stow lift
+const double LIFT_POS_LHF_4         = 0.50; //low hatch front
+const double LIFT_POS_LCF_4         = 0.55; //low cargo front
+const double LIFT_POS_MHF_4         = 0.70; //mid hatch front
+const double LIFT_POS_MCF_4         = 0.75; //mid cargo front
+const double LIFT_POS_HHF_4         = 0.80; //high hatch front
+const double LIFT_POS_HCF_4         = 0.85; //high cargo front
 
 //MANIPULATOR
 //Claw System Servo PWM IDs - Rev Smart Servo

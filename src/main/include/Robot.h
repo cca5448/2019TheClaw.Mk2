@@ -22,6 +22,9 @@
 //#include "subsystems/Climber.h"
 #include "subsystems/Drivetrain.h"
 #include "subsystems/LiftJoint1.h"
+#include "subsystems/LiftJoint2.h"
+#include "subsystems/LiftJoint3.h"
+#include "subsystems/LiftJoint4.h"
 #include "subsystems/Sensors.h"
 
 class Robot : public frc::TimedRobot {
@@ -30,6 +33,9 @@ class Robot : public frc::TimedRobot {
   //static std::shared_ptr<Climber> climber;
   static std::shared_ptr<Drivetrain> drivetrain;
   static std::shared_ptr<LiftJoint1> liftjoint1;
+  static std::shared_ptr<LiftJoint2> liftjoint2;
+  static std::shared_ptr<LiftJoint3> liftjoint3;
+  static std::shared_ptr<LiftJoint4> liftjoint4;
   static std::shared_ptr<Sensors> sensors;
   
   static std::unique_ptr<OI> oi;

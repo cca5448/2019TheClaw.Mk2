@@ -16,6 +16,9 @@ std::shared_ptr<Claw> Robot::claw;
 //std::shared_ptr<Climber> Robot::climber;
 std::shared_ptr<Drivetrain> Robot::drivetrain;
 std::shared_ptr<LiftJoint1> Robot::liftjoint1;
+std::shared_ptr<LiftJoint2> Robot::liftjoint2;
+std::shared_ptr<LiftJoint3> Robot::liftjoint3;
+std::shared_ptr<LiftJoint4> Robot::liftjoint4;
 std::shared_ptr<Sensors> Robot::sensors;
 //OI after subsystems
 std::unique_ptr<OI> Robot::oi;
@@ -24,6 +27,9 @@ void Robot::RobotInit() {
 	//climber.reset(new Climber());
 	drivetrain.reset(new Drivetrain());
   liftjoint1.reset(new LiftJoint1());
+  liftjoint2.reset(new LiftJoint2());
+  liftjoint3.reset(new LiftJoint3());
+  liftjoint4.reset(new LiftJoint4());
   sensors.reset(new Sensors());
   //OI always after subsystems so the command requires dont grab nullptr
 	oi.reset(new OI());
