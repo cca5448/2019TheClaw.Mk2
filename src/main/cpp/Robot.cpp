@@ -58,6 +58,7 @@ void Robot::DisabledInit() {
 
 void Robot::DisabledPeriodic() {
   frc::Scheduler::GetInstance()->Run();
+  //SmartDashboard::PutNumber("Lift 1 Pot", printf("%.2f\n",liftjoint1.get()->ReturnPIDInput()));
 }
 
 /**
@@ -104,6 +105,7 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
   frc::Scheduler::GetInstance()->Run();
+  SmartDashboard::PutNumber("Lift 1 Pot", liftjoint1.get()->ReturnPIDInput());
 }
 
 void Robot::TestPeriodic() {

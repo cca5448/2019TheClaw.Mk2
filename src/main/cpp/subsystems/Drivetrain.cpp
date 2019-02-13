@@ -13,8 +13,8 @@ Drivetrain::Drivetrain() : frc::Subsystem("Drivetrain"){
 	robotDrive->SetExpiration(0.1);
 
 	//invert right side
-	rf->SetInverted(true);
-	rr->SetInverted(true);
+	//rf->SetInverted(true);
+	//rr->SetInverted(true);
 
 	try {
 		/***********************************************************************
