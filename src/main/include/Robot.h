@@ -21,7 +21,6 @@
 #include "subsystems/Claw.h"
 //#include "subsystems/Climber.h"
 #include "subsystems/Drivetrain.h"
-#include "subsystems/Lift.h"
 #include "subsystems/LiftJoint1.h"
 #include "subsystems/Sensors.h"
 
@@ -30,7 +29,6 @@ class Robot : public frc::TimedRobot {
   static std::shared_ptr<Claw> claw;
   //static std::shared_ptr<Climber> climber;
   static std::shared_ptr<Drivetrain> drivetrain;
-  static std::shared_ptr<Lift> lift;
   static std::shared_ptr<LiftJoint1> liftjoint1;
   static std::shared_ptr<Sensors> sensors;
   

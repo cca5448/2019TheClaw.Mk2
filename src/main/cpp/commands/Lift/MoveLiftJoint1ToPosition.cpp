@@ -9,7 +9,8 @@ MoveLiftJoint1ToPosition::MoveLiftJoint1ToPosition(double pos)
 
 void MoveLiftJoint1ToPosition::Initialize()
 {
-    Robot::liftjoint1->SetLiftJointSetpoint(m_TARGET_POS);
+	Robot::liftjoint1->Enable();
+	Robot::liftjoint1->SetSetpoint(m_TARGET_POS);
 }
 
 void MoveLiftJoint1ToPosition::Execute()
@@ -18,7 +19,8 @@ void MoveLiftJoint1ToPosition::Execute()
 
 bool MoveLiftJoint1ToPosition::IsFinished()
 {
-	return false;
+	return Robot::liftjoint1->OnTarget();
+	//return false;
 }
 
 void MoveLiftJoint1ToPosition::End()

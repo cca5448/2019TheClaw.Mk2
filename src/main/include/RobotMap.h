@@ -8,9 +8,9 @@ const float JOYSTICK_RAMP_POWER = 1.1; //speed ramp power - this is for proporti
 const float CLIMB_MOT_SPEED_CLIMB = 0.5; //speed of climber climb motor
 const float CLIMB_MOT_SPEED_DRIVE = 0.5; //speed of climber drive motor
 const double LIFT_JOINT_KP = 5.0; //PID P proportional constant for lift joints
-const double LIFT_JOINT_KI = 0.0; //PID I for lift joints
-const double LIFT_JOINT_KD = 0.0; //PID D for lift joints
-static const float GYRO_KP = 0.03;
+const double LIFT_JOINT_KI = 0.0; //PID I integral constant for lift joints
+const double LIFT_JOINT_KD = 0.0; //PID D derivative constant for lift joints
+const double LIFT_JOINT_TOLERANCE = 0.05; //PID Tolerance for lift joints
 
 //DRIVER STATION
 //Joysticks
