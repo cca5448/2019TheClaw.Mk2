@@ -47,6 +47,7 @@ const unsigned short BTN_CLAW_CC        = 6; //Claw to capture cargo
 const unsigned short BTN_CLAW_FC        = 4; //Claw to full closed
 const unsigned short BTN_CLAW_CH        = 3; //Claw to capture hatch
 const unsigned short BTN_CLAW_EHR       = 12; //Claw to emergence hatch release (full close + safe zone)
+const unsigned short BTN_CLAW_STOP      = 8; //Claw stop wherever it is
 const unsigned short BTN_ENDGAME_UP     = 7; //Extend platform climber both sides
 const unsigned short BTN_ENDGAME_DN     = 2; //Retract platform climber close side
 const unsigned short BTN_ENDGAME_DNALL  = 10; //Retract platform climber both sides

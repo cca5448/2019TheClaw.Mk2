@@ -43,6 +43,7 @@ class OI
 		std::shared_ptr<frc::JoystickButton> button_claw_fc; //full closed
 		std::shared_ptr<frc::JoystickButton> button_claw_ch; //capture hatch
 		std::shared_ptr<frc::JoystickButton> button_claw_ehr; //emergency hatch release (full close + safe zone)
+		std::shared_ptr<frc::JoystickButton> button_claw_stop; //stop
 		//other
 		std::shared_ptr<frc::JoystickButton> button_cam_aa; //aim assist
 		std::shared_ptr<frc::JoystickButton> button_end_up; //extend both sides

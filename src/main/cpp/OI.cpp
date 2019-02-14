@@ -9,6 +9,7 @@
 #include "commands/Claw/ClawEmerHatchRelease.h"
 #include "commands/Claw/ClawFullClose.h"
 #include "commands/Claw/ClawFullOpen.h"
+#include "commands/Claw/ClawStop.h"
 //climber
 //#include "commands/Climber/StartClimberUp.h"
 //#include "commands/Climber/StartClimberDown.h"
@@ -128,6 +129,7 @@ OI::OI()
 	button_claw_fc.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_FC));
 	button_claw_fo.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_FO));
 	button_claw_ehr.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_EHR));
+	button_claw_stop.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_STOP));
 	//climber
 	button_end_dn.reset(new frc::JoystickButton(r_buttons.get(),BTN_ENDGAME_DN));
 	button_end_dnall.reset(new frc::JoystickButton(r_buttons.get(),BTN_ENDGAME_DNALL));
@@ -157,6 +159,7 @@ OI::OI()
 	button_claw_fc->WhenPressed(new ClawFullClose());
 	button_claw_fo->WhenPressed(new ClawFullOpen());
 	button_claw_ehr->WhenPressed(new ClawEmerHatchRelease());
+	button_claw_stop->WhenPressed(new ClawStop());
 	//climber
 	//button_end_dn->WhenPressed(new ClimberDown());
 	//button_end_dnall->WhenPressed(new ClimberDownAll());
