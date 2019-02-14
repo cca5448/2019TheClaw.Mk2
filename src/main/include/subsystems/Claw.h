@@ -12,6 +12,7 @@ class Claw : public frc::Subsystem
 	public:
 		Claw();
 		void InitDefaultCommand() override;
+		void StopClaw();
 		void MoveClawToFullClose();
 		void MoveClawToCaptureHatch();
 		void MoveClawToFullOpen();

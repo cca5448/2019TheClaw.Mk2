@@ -10,79 +10,69 @@ Claw::Claw() : frc::Subsystem("Claw"){
 void Claw::InitDefaultCommand(){
 }
 
+void Claw::StopClaw(){
+    //Stop claw
+    frc::SmartDashboard::PutString("Last Action","Stop Claw");
+    claw_motor->Set(.5);
+}
+
 void Claw::MoveClawToFullClose(){
     //Close claw until claw pot value is less than recorded close value
-    frc::SmartDashboard::PutString("Action","Move claw to Full Close");
-    claw_motor->SetSafetyEnabled(false);
-    do {
-        if (claw_pot->Get() > CLAW_POT_VAL_FC) {
-            claw_motor->Set(.25);
-        } else if (claw_pot->Get() < CLAW_POT_VAL_FC) {
-            claw_motor->Set(.75);
+    frc::SmartDashboard::PutString("Last Action","Move claw to Full Close");
+    //do {
+        static double pos = CLAW_POT_VAL_FC;
+        if (claw_pot->Get() > pos) {
+            claw_motor->Set((0.5 - CLAW_MOT_SPEED));
+        } else if (claw_pot->Get() < pos) {
+            claw_motor->Set((0.5 + CLAW_MOT_SPEED));
         }
-        
-    } while (claw_pot->Get() <= (CLAW_POT_VAL_FC - CLAW_POT_VAL_TOLERANCE) or claw_pot->Get() >= (CLAW_POT_VAL_FC + CLAW_POT_VAL_TOLERANCE));
-    claw_motor->Set(.5);
+    
+    //} while (claw_pot->Get() <= (CLAW_POT_VAL_FC - CLAW_POT_VAL_TOLERANCE) or claw_pot->Get() >= (CLAW_POT_VAL_FC + CLAW_POT_VAL_TOLERANCE));
+    //claw_motor->Set(.5);
 }
 
 void Claw::MoveClawToCaptureHatch(){
     //Open the claw until claw pot value is at or more than recorded capture value
-    frc::SmartDashboard::PutString("Action","Move claw to Capture Hatch");
-    claw_motor->SetSafetyEnabled(false);
-    do {
-        if (claw_pot->Get() > CLAW_POT_VAL_CH) {
-            claw_motor->Set(.25);
-        } else if (claw_pot->Get() < CLAW_POT_VAL_CH) {
-            claw_motor->Set(.75);
+    frc::SmartDashboard::PutString("Last Action","Move claw to Capture Hatch");
+        static double pos = CLAW_POT_VAL_CH;
+        if (claw_pot->Get() > pos) {
+            claw_motor->Set((0.5 - CLAW_MOT_SPEED));
+        } else if (claw_pot->Get() < pos) {
+            claw_motor->Set((0.5 + CLAW_MOT_SPEED));
         }
-        
-    } while (claw_pot->Get() <= (CLAW_POT_VAL_CH - CLAW_POT_VAL_TOLERANCE) or claw_pot->Get() >= (CLAW_POT_VAL_CH + CLAW_POT_VAL_TOLERANCE));
-    claw_motor->Set(.5);
 }
 
 void Claw::MoveClawToFullOpen(){
     //Open the claw until claw pot value is at the max value
-    frc::SmartDashboard::PutString("Action","Move claw to Full Open");
-    claw_motor->SetSafetyEnabled(false);
-    do {
-        if (claw_pot->Get() > CLAW_POT_VAL_FO) {
-            claw_motor->Set(.25);
-        } else if (claw_pot->Get() < CLAW_POT_VAL_FO) {
-            claw_motor->Set(.75);
+    frc::SmartDashboard::PutString("Last Action","Move claw to Full Open");
+        static double pos = CLAW_POT_VAL_FO;
+        if (claw_pot->Get() > pos) {
+            claw_motor->Set((0.5 - CLAW_MOT_SPEED));
+        } else if (claw_pot->Get() < pos) {
+            claw_motor->Set((0.5 + CLAW_MOT_SPEED));
         }
-        
-    } while (claw_pot->Get() <= (CLAW_POT_VAL_FO - CLAW_POT_VAL_TOLERANCE) or claw_pot->Get() >= (CLAW_POT_VAL_FO + CLAW_POT_VAL_TOLERANCE));
-    claw_motor->Set(.5);
 }
 
 void Claw::MoveClawToCaptureCargo(){
     //Close the claw until claw pot value is at or below the recorded capture value
-    frc::SmartDashboard::PutString("Action","Move claw to Capture Cargo");
-    claw_motor->SetSafetyEnabled(false);
-    do {
-        if (claw_pot->Get() > CLAW_POT_VAL_CC) {
-            claw_motor->Set(.25);
-        } else if (claw_pot->Get() < CLAW_POT_VAL_CC) {
-            claw_motor->Set(.75);
+    frc::SmartDashboard::PutString("Last Action","Move claw to Capture Cargo");
+        static double pos = CLAW_POT_VAL_CC;
+        if (claw_pot->Get() > pos) {
+            claw_motor->Set((0.5 - CLAW_MOT_SPEED));
+        } else if (claw_pot->Get() < pos) {
+            claw_motor->Set((0.5 + CLAW_MOT_SPEED));
         }
-        
-    } while (claw_pot->Get() <= (CLAW_POT_VAL_CC - CLAW_POT_VAL_TOLERANCE) or claw_pot->Get() >= (CLAW_POT_VAL_CC + CLAW_POT_VAL_TOLERANCE));
-    claw_motor->Set(.5);
 }
 
 void Claw::MoveClawToEmerHatchRelease(){
     //Close the claw until claw pot value is at or less than recorded min value
-    frc::SmartDashboard::PutString("Action","Move claw to Emer Hatch Release");
-    claw_motor->SetSafetyEnabled(false);
-    do {
-        if (claw_pot->Get() > CLAW_POT_VAL_EHR) {
-            claw_motor->Set(.25);
-        } else if (claw_pot->Get() < CLAW_POT_VAL_EHR) {
-            claw_motor->Set(.75);
+    frc::SmartDashboard::PutString("Last Action","Move claw to Emer Hatch Release");
+        static double pos = CLAW_POT_VAL_EHR;
+        if (claw_pot->Get() > pos) {
+            claw_motor->Set((0.5 - CLAW_MOT_SPEED));
+        } else if (claw_pot->Get() < pos) {
+            claw_motor->Set((0.5 + CLAW_MOT_SPEED));
         }
-        
-    } while (claw_pot->Get() <= (CLAW_POT_VAL_EHR - CLAW_POT_VAL_TOLERANCE) or claw_pot->Get() >= (CLAW_POT_VAL_EHR + CLAW_POT_VAL_TOLERANCE));
-    claw_motor->Set(.5);
 }
 
 double Claw::GetClawPotValue(){

@@ -1,31 +1,30 @@
 #include "commands/Claw/ClawFullClose.h"
 #include "Robot.h"
+#include "RobotMap.h"
 
-ClawFullClose::ClawFullClose()
-{
+ClawFullClose::ClawFullClose(){
 	Requires(Robot::claw.get());
 }
 
-void ClawFullClose::Initialize()
-{
+void ClawFullClose::Initialize(){
     Robot::claw->MoveClawToFullClose();
 }
 
-void ClawFullClose::Execute()
-{
+void ClawFullClose::Execute(){
 }
 
-bool ClawFullClose::IsFinished()
-{
-	return false; //this needs to read the pot and end when target reached
+bool ClawFullClose::IsFinished(){
+	static double target = CLAW_POT_VAL_FC;
+	static double current = Robot::claw->GetClawPotValue();
+	return (current >= (target - CLAW_POT_VAL_TOLERANCE) and current <= (target + CLAW_POT_VAL_TOLERANCE));
+	//return true; //this needs to read the pot and end when target reached
 }
 
-void ClawFullClose::End()
-{
+void ClawFullClose::End(){
+	Robot::claw->StopClaw();
 }
 
-void ClawFullClose::Interrupted()
-{
+void ClawFullClose::Interrupted(){
 	End();
 }
 

@@ -12,6 +12,7 @@ const double LIFT_JOINT_KI = 0.0; //PID I integral constant for lift joints
 const double LIFT_JOINT_KD = 0.0; //PID D derivative constant for lift joints
 const double LIFT_JOINT_TOLERANCE = 0.05; //PID Tolerance for lift joints
 const double CLAW_POT_VAL_TOLERANCE = 0.05; //Pot tolerance for claw
+const double CLAW_MOT_SPEED = 0.40; //0.0-0.5 speed of claw servo
 
 //DRIVER STATION
 //Joysticks
