@@ -24,7 +24,8 @@ std::shared_ptr<Sensors> Robot::sensors;
 std::unique_ptr<OI> Robot::oi;
 
 void Robot::RobotInit() {
-	//climber.reset(new Climber());
+	claw.reset(new Claw());
+  //climber.reset(new Climber());
 	drivetrain.reset(new Drivetrain());
   liftjoint1.reset(new LiftJoint1());
   liftjoint2.reset(new LiftJoint2());

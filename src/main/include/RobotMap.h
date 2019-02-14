@@ -11,6 +11,7 @@ const double LIFT_JOINT_KP = 5.0; //PID P proportional constant for lift joints
 const double LIFT_JOINT_KI = 0.0; //PID I integral constant for lift joints
 const double LIFT_JOINT_KD = 0.0; //PID D derivative constant for lift joints
 const double LIFT_JOINT_TOLERANCE = 0.05; //PID Tolerance for lift joints
+const double CLAW_POT_VAL_TOLERANCE = 0.05; //Pot tolerance for claw
 
 //DRIVER STATION
 //Joysticks
@@ -109,17 +110,17 @@ const double LIFT_POS_HCF_4         = 0.85; //high cargo front
 
 //MANIPULATOR
 //Claw System Servo PWM IDs - Rev Smart Servo
-const unsigned short CLAW_MOT_1     = 1;
+const unsigned short CLAW_MOT_1     = 0;
 //Claw System Sensor Pots Analog IDs - 10-turn 10k linear
-const unsigned short CLAW_POT_1     = 5;
-//Claw System Sensor Pots offset in degrees
-const double CLAW_POT_OFFSET_1      = 1800.0; //degrees to offset the pot
+const unsigned short CLAW_POT_1     = 0;
+//Claw System Sensor Pots offset 
+const double CLAW_POT_OFFSET_1      = 0.0; //degrees to offset the pot
 //Claw Sensor Pot Position Values
-const double CLAW_POT_VAL_EHR         = 0; //Emergency Hatch Release
-const double CLAW_POT_VAL_FC          = 0; //Full Closed
-const double CLAW_POT_VAL_CH          = 0; //Capture Hatch
-const double CLAW_POT_VAL_CC          = 0; //Capture Cargo
-const double CLAW_POT_VAL_FO          = 0; //Full Open
+const double CLAW_POT_VAL_EHR         = 0.235; //Emergency Hatch Release
+const double CLAW_POT_VAL_FC          = 0.269; //Full Closed
+const double CLAW_POT_VAL_CH          = 0.330; //Capture Hatch
+const double CLAW_POT_VAL_CC          = 0.618; //Capture Cargo
+const double CLAW_POT_VAL_FO          = 0.700; //Full Open
  
 //CLIMBER
 //Motor CAN IDs - Talon SRX

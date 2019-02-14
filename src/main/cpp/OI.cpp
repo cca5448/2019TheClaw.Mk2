@@ -4,11 +4,11 @@
 #include <frc/WPILib.h>
 
 //claw
-//#include "commands/Claw/ClawCaptureCargo.h"
-//#include "commands/Claw/ClawCaptureHatch.h"
-//#include "commands/Claw/ClawEmerHatchRelease.h"
-//#include "commands/Claw/ClawFullClose.h"
-//#include "commands/Claw/ClawFullOpen.h"
+#include "commands/Claw/ClawCaptureCargo.h"
+#include "commands/Claw/ClawCaptureHatch.h"
+#include "commands/Claw/ClawEmerHatchRelease.h"
+#include "commands/Claw/ClawFullClose.h"
+#include "commands/Claw/ClawFullOpen.h"
 //climber
 //#include "commands/Climber/StartClimberUp.h"
 //#include "commands/Climber/StartClimberDown.h"
@@ -152,11 +152,11 @@ OI::OI()
 	//button_lift_lc_back->WhenPressed(new MoveLiftToLCB());
 	//button_lift_lh_back->WhenPressed(new MoveLiftToLHB());
 	//claw
-	//button_claw_cc->WhenPressed(new ClawCaptureCargo());
-	//button_claw_ch->WhenPressed(new ClawCaptureHatch());
-	//button_claw_fc->WhenPressed(new ClawFullClosed());
-	//button_claw_fo->WhenPressed(new ClawFullOpen());
-	//button_claw_ehr->WhenPressed(new ClawEmerHatchRelease());
+	button_claw_cc->WhenPressed(new ClawCaptureCargo());
+	button_claw_ch->WhenPressed(new ClawCaptureHatch());
+	button_claw_fc->WhenPressed(new ClawFullClose());
+	button_claw_fo->WhenPressed(new ClawFullOpen());
+	button_claw_ehr->WhenPressed(new ClawEmerHatchRelease());
 	//climber
 	//button_end_dn->WhenPressed(new ClimberDown());
 	//button_end_dnall->WhenPressed(new ClimberDownAll());
