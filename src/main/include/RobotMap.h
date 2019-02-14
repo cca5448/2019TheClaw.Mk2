@@ -11,8 +11,8 @@ const double LIFT_JOINT_KP = 5.0; //PID P proportional constant for lift joints
 const double LIFT_JOINT_KI = 0.0; //PID I integral constant for lift joints
 const double LIFT_JOINT_KD = 0.0; //PID D derivative constant for lift joints
 const double LIFT_JOINT_TOLERANCE = 0.05; //PID Tolerance for lift joints
-const double CLAW_POT_VAL_TOLERANCE = 0.05; //Pot tolerance for claw
-const double CLAW_MOT_SPEED = 0.40; //0.0-0.5 speed of claw servo
+const double CLAW_POT_VAL_TOLERANCE = 0.003; //Pot tolerance for claw
+const double CLAW_MOT_SPEED = 0.50; //0.0-0.5 speed of claw servo
 
 //DRIVER STATION
 //Joysticks
@@ -62,10 +62,10 @@ const unsigned short DRIVE_MOT_RR			= 4; //Right Rear
 
 //LIFT SYSTEM
 //Lift System Motor Controllers CAN IDs - Talon SRX
-const unsigned short LIFT_MOT_1       = 1; //Lowest joint
-const unsigned short LIFT_MOT_2       = 2; 
-const unsigned short LIFT_MOT_3       = 3; 
-const unsigned short LIFT_MOT_4       = 4; //Highest joint
+const unsigned short LIFT_MOT_1       = 10; //Lowest joint
+const unsigned short LIFT_MOT_2       = 11; 
+const unsigned short LIFT_MOT_3       = 12; 
+const unsigned short LIFT_MOT_4       = 13; //Highest joint
 //Lift System Sensor Pots Analog IDs - 10-turn 10k linear
 const unsigned short LIFT_POT_1     = 1;
 const unsigned short LIFT_POT_2     = 2;

@@ -19,4 +19,5 @@ class Claw : public frc::Subsystem
 		void MoveClawToCaptureCargo();
 		void MoveClawToEmerHatchRelease();
 		double GetClawPotValue();
+		double GetClawMotorSpeed();
 };

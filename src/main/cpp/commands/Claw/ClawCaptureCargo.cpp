@@ -15,8 +15,8 @@ void ClawCaptureCargo::Execute(){
 
 bool ClawCaptureCargo::IsFinished(){
 	static double target = CLAW_POT_VAL_CC;
-	static double current = Robot::claw->GetClawPotValue();
-	return (current >= (target - CLAW_POT_VAL_TOLERANCE) and current <= (target + CLAW_POT_VAL_TOLERANCE));
+	printf("Target: %.2f  Current: %.2f\n", target, Robot::claw->GetClawPotValue());
+	return (Robot::claw->GetClawPotValue() >= (target - CLAW_POT_VAL_TOLERANCE) and Robot::claw->GetClawPotValue() <= (target + CLAW_POT_VAL_TOLERANCE));
 	//return true; //this needs to read the pot and end when target reached
 }
 

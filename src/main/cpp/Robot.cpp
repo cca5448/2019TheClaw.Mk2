@@ -38,6 +38,7 @@ void Robot::RobotInit() {
 //  m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
 //  m_chooser.AddOption("My Auto", &m_myAuto);
 //  frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+  frc::SmartDashboard::PutString("Last Action","");
 }
 
 /**
@@ -110,7 +111,9 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
   frc::Scheduler::GetInstance()->Run();
-  SmartDashboard::PutNumber("Lift 1 Pot", liftjoint1.get()->ReturnPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 1 Pot", liftjoint1.get()->ReturnPIDInput());
+  frc::SmartDashboard::PutNumber("Claw Pot", claw.get()->GetClawPotValue());
+  frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
 }
 
 void Robot::TestPeriodic() {
