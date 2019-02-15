@@ -7,6 +7,7 @@ ClawCaptureCargo::ClawCaptureCargo(){
 }
 
 void ClawCaptureCargo::Initialize(){
+    frc::SmartDashboard::PutString("Last Action","Claw: Capture Cargo");
     Robot::claw->MoveClawToCaptureCargo();
 }
 

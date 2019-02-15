@@ -10,6 +10,7 @@
 
 
 MoveLiftToMCF::MoveLiftToMCF(){
+    frc::SmartDashboard::PutString("Last Action","Lift: Move to Mid-Cargo Front");
     AddParallel(new MoveLiftJoint1ToPosition(LIFT_POS_MCF_1));
     AddParallel(new MoveLiftJoint2ToPosition(LIFT_POS_MCF_2));
     AddParallel(new MoveLiftJoint3ToPosition(LIFT_POS_MCF_3));

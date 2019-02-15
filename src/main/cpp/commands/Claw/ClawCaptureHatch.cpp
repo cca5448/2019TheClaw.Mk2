@@ -7,6 +7,7 @@ ClawCaptureHatch::ClawCaptureHatch(){
 }
 
 void ClawCaptureHatch::Initialize(){
+    frc::SmartDashboard::PutString("Last Action","Claw: Capture Hatch");
     Robot::claw->MoveClawToCaptureHatch();
 }
 

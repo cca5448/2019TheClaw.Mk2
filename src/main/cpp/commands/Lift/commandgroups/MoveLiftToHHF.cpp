@@ -10,6 +10,7 @@
 
 
 MoveLiftToHHF::MoveLiftToHHF(){
+    frc::SmartDashboard::PutString("Last Action","Lift: Move to High-Hatch Front");
     AddParallel(new MoveLiftJoint1ToPosition(LIFT_POS_HHF_1));
     AddParallel(new MoveLiftJoint2ToPosition(LIFT_POS_HHF_2));
     AddParallel(new MoveLiftJoint3ToPosition(LIFT_POS_HHF_3));

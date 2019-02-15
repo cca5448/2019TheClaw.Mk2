@@ -7,6 +7,7 @@ ClawStop::ClawStop(){
 }
 
 void ClawStop::Initialize(){
+    frc::SmartDashboard::PutString("Last Action","Claw: Stop Claw");
     Robot::claw->StopClaw();
 }
 

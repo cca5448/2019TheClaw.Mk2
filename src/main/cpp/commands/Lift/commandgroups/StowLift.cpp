@@ -9,6 +9,7 @@
 #include "commands/Lift/MoveLiftJoint4ToPosition.h"
 
 StowLift::StowLift(){
+    frc::SmartDashboard::PutString("Last Action","Lift: Stow Lift");
     AddParallel(new MoveLiftJoint1ToPosition(LIFT_POS_STOW_1));
     AddParallel(new MoveLiftJoint2ToPosition(LIFT_POS_STOW_2));
     AddParallel(new MoveLiftJoint3ToPosition(LIFT_POS_STOW_3));

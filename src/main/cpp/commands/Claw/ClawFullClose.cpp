@@ -7,6 +7,7 @@ ClawFullClose::ClawFullClose(){
 }
 
 void ClawFullClose::Initialize(){
+    frc::SmartDashboard::PutString("Last Action","Claw: Full Close");
     Robot::claw->MoveClawToFullClose();
 }
 

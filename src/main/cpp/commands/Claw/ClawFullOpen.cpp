@@ -7,6 +7,7 @@ ClawFullOpen::ClawFullOpen(){
 }
 
 void ClawFullOpen::Initialize(){
+    frc::SmartDashboard::PutString("Last Action","Claw: Full Open");
     Robot::claw->MoveClawToFullOpen();
 }
 

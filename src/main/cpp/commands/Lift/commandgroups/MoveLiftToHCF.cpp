@@ -8,8 +8,8 @@
 #include "commands/Lift/MoveLiftJoint3ToPosition.h"
 #include "commands/Lift/MoveLiftJoint4ToPosition.h"
 
-
 MoveLiftToHCF::MoveLiftToHCF(){
+    frc::SmartDashboard::PutString("Last Action","Lift: Move to High-Cargo Front");
     AddParallel(new MoveLiftJoint1ToPosition(LIFT_POS_HCF_1));
     AddParallel(new MoveLiftJoint2ToPosition(LIFT_POS_HCF_2));
     AddParallel(new MoveLiftJoint3ToPosition(LIFT_POS_HCF_3));

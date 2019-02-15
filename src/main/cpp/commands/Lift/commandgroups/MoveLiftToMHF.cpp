@@ -10,6 +10,7 @@
 
 
 MoveLiftToMHF::MoveLiftToMHF(){
+    frc::SmartDashboard::PutString("Last Action","Lift: Move to Mid-Hatch Front");
     AddParallel(new MoveLiftJoint1ToPosition(LIFT_POS_MHF_1));
     AddParallel(new MoveLiftJoint2ToPosition(LIFT_POS_MHF_2));
     AddParallel(new MoveLiftJoint3ToPosition(LIFT_POS_MHF_3));

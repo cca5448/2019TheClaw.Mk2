@@ -7,6 +7,7 @@ ClawEmerHatchRelease::ClawEmerHatchRelease(){
 }
 
 void ClawEmerHatchRelease::Initialize(){
+    frc::SmartDashboard::PutString("Last Action","Claw: Emergency Hatch Release");
     Robot::claw->MoveClawToEmerHatchRelease();
 }
 
