@@ -21,3 +21,7 @@ void LiftJoint2::UsePIDOutput(double output) {
 double LiftJoint2::ReturnPIDInput() {
 	return LiftJoint2_Pot->PIDGet();
 }
+
+int LiftJoint2::GetScaledPIDInput() {
+	return LiftJoint2_Pot->PIDGet() * 100;
+}

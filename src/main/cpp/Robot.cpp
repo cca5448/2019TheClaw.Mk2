@@ -66,11 +66,11 @@ void Robot::DisabledInit() {
 
 void Robot::DisabledPeriodic() {
   frc::Scheduler::GetInstance()->Run();
-  frc::SmartDashboard::PutNumber("Lift 1 Pot", liftjoint1.get()->ReturnPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 2 Pot", liftjoint2.get()->ReturnPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 3 Pot", liftjoint3.get()->ReturnPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 4 Pot", liftjoint4.get()->ReturnPIDInput());
-  frc::SmartDashboard::PutNumber("Claw Pot", (int) claw.get()->GetClawPotValue());
+  frc::SmartDashboard::PutNumber("Lift 1 Pos", (int) liftjoint1.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 2 Pos", (int) liftjoint2.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 3 Pos", (int) liftjoint3.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 4 Pos", (int) liftjoint4.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Claw Pos", (int) claw.get()->GetClawPotValue());
 }
 
 /**
@@ -117,11 +117,11 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
   frc::Scheduler::GetInstance()->Run();
-  frc::SmartDashboard::PutNumber("Lift 1 Pot", liftjoint1.get()->ReturnPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 2 Pot", liftjoint2.get()->ReturnPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 3 Pot", liftjoint3.get()->ReturnPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 4 Pot", liftjoint4.get()->ReturnPIDInput());
-  frc::SmartDashboard::PutNumber("Claw Pot", (int) claw.get()->GetClawPotValue());
+  frc::SmartDashboard::PutNumber("Lift 1 Pos", (int) liftjoint1.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 2 Pos", (int) liftjoint2.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 3 Pos", (int) liftjoint3.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 4 Pos", (int) liftjoint4.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Claw Pos", (int) claw.get()->GetClawPotValue());
   frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
 }
 

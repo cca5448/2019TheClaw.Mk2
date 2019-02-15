@@ -13,5 +13,6 @@ class LiftJoint1 : public frc::PIDSubsystem
 		LiftJoint1();
 		void InitDefaultCommand() override;
 		double ReturnPIDInput();
+		int GetScaledPIDInput();
 		void UsePIDOutput(double output);
 };
