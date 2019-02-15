@@ -187,7 +187,7 @@ double OI::GetTurnAxis(){
 }
 double OI::GetLiftAxis(){
 	//method will return the lift adjust axis
-	return (DeadZone(lift_stick->GetRawAxis(JOY_LIFT_AXIS_LIFT)));
+	return -(DeadZone(lift_stick->GetRawAxis(JOY_LIFT_AXIS_LIFT)));
 	//return lift_stick->GetRawAxis(JOY_LIFT_AXIS_LIFT);
 }
 

@@ -4,7 +4,7 @@
 
 //Tuneables - Move this to network tables
 const float JOYSTICK_DEADZONE = 0.25; //dead zone
-const float JOYSTICK_RAMP_POWER = 1.1; //speed ramp power - this is for proportionalAxis
+const float JOYSTICK_RAMP_POWER = 1.0; //speed ramp power - this is for ramping dead zone
 const float CLIMB_MOT_SPEED_CLIMB = 0.5; //speed of climber climb motor
 const float CLIMB_MOT_SPEED_DRIVE = 0.5; //speed of climber drive motor
 const double LIFT_JOINT_KP = 5.0; //PID P proportional constant for lift joints
@@ -22,8 +22,8 @@ const unsigned short JOY_DRIVE          = JOY_LEFT; //Drive joystick
 const unsigned short JOY_STEER          = JOY_RIGHT; //Steering joystick
 const unsigned short JOY_LIFT           = JOY_RIGHT; //Lift adjustment joystick
 const unsigned short JOY_ENDGAME_STRAFE = JOY_RIGHT; //Endgame strafe joystick
-const unsigned short JOY_DRIVE_AXIS_THROTTLE    = 0; //Throttle Axis
-const unsigned short JOY_DRIVE_AXIS_STRAFE      = 1; //Strafe Axis
+const unsigned short JOY_DRIVE_AXIS_THROTTLE    = 1; //Throttle Axis
+const unsigned short JOY_DRIVE_AXIS_STRAFE      = 0; //Strafe Axis
 const unsigned short JOY_LIFT_AXIS_LIFT         = 1; //Lift Adjust Axis
 const unsigned short JOY_STEER_AXIS_TURN        = 0; //Turn Axis
 const unsigned short JOY_ENDGAME_AXIS_STRAFE    = 0; //Strafe Axis during endgame (re-use turn axis)
