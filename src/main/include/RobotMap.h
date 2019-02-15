@@ -2,7 +2,7 @@
 
 #pragma once
 
-//Adjustables
+//Tuneables - Move this to network tables
 const float JOYSTICK_DEADZONE = 0.25; //dead zone
 const float JOYSTICK_RAMP_POWER = 1.1; //speed ramp power - this is for proportionalAxis
 const float CLIMB_MOT_SPEED_CLIMB = 0.5; //speed of climber climb motor
@@ -118,11 +118,11 @@ const unsigned short CLAW_POT_1     = 0;
 //Claw System Sensor Pots offset 
 const double CLAW_POT_OFFSET_1      = 0.0; //degrees to offset the pot
 //Claw Sensor Pot Position Values
-const double CLAW_POT_VAL_EHR         = 0.235; //Emergency Hatch Release
-const double CLAW_POT_VAL_FC          = 0.269; //Full Closed
-const double CLAW_POT_VAL_CH          = 0.330; //Capture Hatch
-const double CLAW_POT_VAL_CC          = 0.618; //Capture Cargo
-const double CLAW_POT_VAL_FO          = 0.700; //Full Open
+const double CLAW_POT_VAL_EHR         = 0.240; //Emergency Hatch Release
+const double CLAW_POT_VAL_FC          = 0.258; //Full Closed
+const double CLAW_POT_VAL_CH          = 0.334; //Capture Hatch
+const double CLAW_POT_VAL_CC          = 0.506; //Capture Cargo
+const double CLAW_POT_VAL_FO          = 0.686; //Full Open
  
 //CLIMBER
 //Motor CAN IDs - Talon SRX

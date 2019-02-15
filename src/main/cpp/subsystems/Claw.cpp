@@ -4,7 +4,7 @@
 
 Claw::Claw() : frc::Subsystem("Claw"){
 	claw_motor.reset(new frc::Servo(CLAW_MOT_1));
-    claw_pot.reset(new frc::AnalogPotentiometer(CLAW_POT_1,1.0,CLAW_POT_OFFSET_1));
+    claw_pot.reset(new frc::AnalogPotentiometer(CLAW_POT_1,3600,CLAW_POT_OFFSET_1));
 }
 
 void Claw::InitDefaultCommand(){

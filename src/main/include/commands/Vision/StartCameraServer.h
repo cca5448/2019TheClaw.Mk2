@@ -1,7 +1,6 @@
 #pragma once
 
 #include "frc/commands/Command.h"
-#include "WPILib.h"
 
 class StartCameraServer: public frc::Command
 {
