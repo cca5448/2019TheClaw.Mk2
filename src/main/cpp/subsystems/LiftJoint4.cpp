@@ -5,7 +5,7 @@ LiftJoint4::LiftJoint4() : frc::PIDSubsystem("LiftJoint4", LIFT_JOINT_KP, LIFT_J
 	SetAbsoluteTolerance(LIFT_JOINT_TOLERANCE);
 	GetPIDController()->SetContinuous(false);
 	LiftJoint4_Pot = std::make_shared<frc::AnalogPotentiometer>(LIFT_POT_4);
-	LiftJoint4_Motor = std::make_shared<WPI_TalonSRX>(LIFT_MOT_4,3600,LIFT_POT_OFFSET_4);
+	LiftJoint4_Motor = std::make_shared<WPI_TalonSRX>(LIFT_MOT_4);
 
 	SetSetpoint(LIFT_POS_STOW_4);
 	Enable();

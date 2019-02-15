@@ -66,13 +66,11 @@ void Robot::DisabledInit() {
 
 void Robot::DisabledPeriodic() {
   frc::Scheduler::GetInstance()->Run();
-  //frc::SmartDashboard::PutNumber("Lift 1 Pot", liftjoint1.get()->ReturnPIDInput());
-  //frc::SmartDashboard::PutNumber("Lift 2 Pot", liftjoint2.get()->ReturnPIDInput());
-  //frc::SmartDashboard::PutNumber("Lift 3 Pot", liftjoint3.get()->ReturnPIDInput());
-  //frc::SmartDashboard::PutNumber("Lift 4 Pot", liftjoint4.get()->ReturnPIDInput());
-  //frc::SmartDashboard::PutNumber("Claw Pot", claw.get()->GetClawPotValue());
-  static double cp = printf("%.3f", claw.get()->GetClawPotValue());
-  frc::SmartDashboard::PutNumber("Claw Pot", cp);
+  frc::SmartDashboard::PutNumber("Lift 1 Pot", liftjoint1.get()->ReturnPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 2 Pot", liftjoint2.get()->ReturnPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 3 Pot", liftjoint3.get()->ReturnPIDInput());
+  frc::SmartDashboard::PutNumber("Lift 4 Pot", liftjoint4.get()->ReturnPIDInput());
+  frc::SmartDashboard::PutNumber("Claw Pot", (int) claw.get()->GetClawPotValue());
 }
 
 /**
@@ -123,7 +121,7 @@ void Robot::TeleopPeriodic() {
   frc::SmartDashboard::PutNumber("Lift 2 Pot", liftjoint2.get()->ReturnPIDInput());
   frc::SmartDashboard::PutNumber("Lift 3 Pot", liftjoint3.get()->ReturnPIDInput());
   frc::SmartDashboard::PutNumber("Lift 4 Pot", liftjoint4.get()->ReturnPIDInput());
-  frc::SmartDashboard::PutNumber("Claw Pot", claw.get()->GetClawPotValue());
+  frc::SmartDashboard::PutNumber("Claw Pot", (int) claw.get()->GetClawPotValue());
   frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
 }
 
