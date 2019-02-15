@@ -1,10 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 #pragma once
 
 //include the things needed here at the robot level
@@ -26,6 +19,7 @@
 #include "subsystems/LiftJoint3.h"
 #include "subsystems/LiftJoint4.h"
 #include "subsystems/Sensors.h"
+#include "subsystems/Vision.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -37,6 +31,7 @@ class Robot : public frc::TimedRobot {
   static std::shared_ptr<LiftJoint3> liftjoint3;
   static std::shared_ptr<LiftJoint4> liftjoint4;
   static std::shared_ptr<Sensors> sensors;
+  static std::shared_ptr<Vision> vision;
   
   static std::unique_ptr<OI> oi;
 
