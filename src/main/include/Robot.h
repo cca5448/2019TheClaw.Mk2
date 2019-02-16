@@ -36,6 +36,7 @@ class Robot : public frc::TimedRobot {
   static std::unique_ptr<OI> oi;
 
   void RobotInit() override;
+  void UpdateDashPeriodic();
   void RobotPeriodic() override;
   void DisabledInit() override;
   void DisabledPeriodic() override;

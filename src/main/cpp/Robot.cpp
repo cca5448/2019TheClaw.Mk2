@@ -25,6 +25,17 @@ std::shared_ptr<Vision> Robot::vision;
 std::unique_ptr<OI> Robot::oi;
 
 void Robot::RobotInit() {
+  //init all with nullptr in case we comment them out below
+  claw = nullptr;
+  //climber = nullptr;
+  drivetrain = nullptr;
+  liftjoint1 = nullptr;
+  liftjoint2 = nullptr;
+  liftjoint3 = nullptr;
+  liftjoint4 = nullptr;
+  sensors = nullptr;
+  vision = nullptr;
+  
 	claw.reset(new Claw());
   //climber.reset(new Climber());
 	drivetrain.reset(new Drivetrain());
@@ -34,6 +45,7 @@ void Robot::RobotInit() {
   liftjoint4.reset(new LiftJoint4());
   sensors.reset(new Sensors());
   vision.reset(new Vision());
+  
   //OI always after subsystems so the command requires dont grab nullptr
 	oi.reset(new OI());
 
@@ -65,12 +77,12 @@ void Robot::DisabledInit() {
 }
 
 void Robot::DisabledPeriodic() {
-  frc::Scheduler::GetInstance()->Run();
   frc::SmartDashboard::PutNumber("Lift 1 Pos", (int) liftjoint1.get()->GetScaledPIDInput());
   frc::SmartDashboard::PutNumber("Lift 2 Pos", (int) liftjoint2.get()->GetScaledPIDInput());
   frc::SmartDashboard::PutNumber("Lift 3 Pos", (int) liftjoint3.get()->GetScaledPIDInput());
   frc::SmartDashboard::PutNumber("Lift 4 Pos", (int) liftjoint4.get()->GetScaledPIDInput());
   frc::SmartDashboard::PutNumber("Claw Pos", (int) claw.get()->GetClawPotValue());
+  frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
 }
 
 /**
@@ -101,7 +113,6 @@ void Robot::AutonomousInit() {
 }
 
 void Robot::AutonomousPeriodic() {
-  frc::Scheduler::GetInstance()->Run();
 }
 
 void Robot::TeleopInit() {
@@ -116,17 +127,9 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-  frc::Scheduler::GetInstance()->Run();
-  frc::SmartDashboard::PutNumber("Lift 1 Pos", (int) liftjoint1.get()->GetScaledPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 2 Pos", (int) liftjoint2.get()->GetScaledPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 3 Pos", (int) liftjoint3.get()->GetScaledPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 4 Pos", (int) liftjoint4.get()->GetScaledPIDInput());
-  frc::SmartDashboard::PutNumber("Claw Pos", (int) claw.get()->GetClawPotValue());
-  frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
 }
 
 void Robot::TestPeriodic() {
-  
 }
 
 #ifndef RUNNING_FRC_TESTS

@@ -9,10 +9,10 @@ const float JOYSTICK_DEADZONE_TURN = 0.4; //dead zone for turn
 const float JOYSTICK_RAMP_POWER_TURN = 0.9; //speed ramp power for turn
 const float CLIMB_MOT_SPEED_CLIMB = 0.5; //speed of climber climb motor
 const float CLIMB_MOT_SPEED_DRIVE = 0.5; //speed of climber drive motor
-const double LIFT_JOINT_KP = 5.0; //PID P proportional constant for lift joints
+const double LIFT_JOINT_KP = 1.0; //PID P proportional constant for lift joints
 const double LIFT_JOINT_KI = 0.0; //PID I integral constant for lift joints
 const double LIFT_JOINT_KD = 0.0; //PID D derivative constant for lift joints
-const double LIFT_JOINT_TOLERANCE = 0.05; //PID Tolerance for lift joints
+const double LIFT_JOINT_TOLERANCE = 0.01; //PID Tolerance for lift joints
 const double CLAW_POT_VAL_TOLERANCE = 0.003; //Pot tolerance for claw
 const double CLAW_MOT_SPEED = 0.50; //0.0-0.5 speed of claw servo
 
@@ -42,6 +42,7 @@ const unsigned short BTN_LIFT_HHB      = 15; //Lift to high hatch on front
 const unsigned short BTN_LIFT_LCB      = 12; //Lift to low cargo on front
 const unsigned short BTN_LIFT_MCB      = 11; //Lift to mid cargo on front
 const unsigned short BTN_LIFT_HCB      = 10; //Lift to high cargo on front
+const unsigned short BTN_LIFT_STOW     = 8; //Lift to stowed position
 const unsigned short BTN_CAM_AA        = 9; //Aim Assist
 //Buttons (Right Joystick)
 const unsigned short BTN_CLAW_FO        = 5; //Claw to full open
@@ -65,10 +66,10 @@ const unsigned short DRIVE_MOT_RR			= 4; //Right Rear
 
 //LIFT SYSTEM
 //Lift System Motor Controllers CAN IDs - Talon SRX
-const unsigned short LIFT_MOT_1       = 9; //Lowest joint
-const unsigned short LIFT_MOT_2       = 11; 
-const unsigned short LIFT_MOT_3       = 12; 
-const unsigned short LIFT_MOT_4       = 13; //Highest joint
+const unsigned short LIFT_MOT_1       = 6; //Lowest joint
+const unsigned short LIFT_MOT_2       = 7; 
+const unsigned short LIFT_MOT_3       = 8; 
+const unsigned short LIFT_MOT_4       = 9; //Highest joint
 //Lift System Sensor Pots Analog IDs - 10-turn 10k linear
 const unsigned short LIFT_POT_1     = 1;
 const unsigned short LIFT_POT_2     = 2;
@@ -80,13 +81,13 @@ const double LIFT_POT_OFFSET_2      = 1800.0;
 const double LIFT_POT_OFFSET_3      = 1800.0;
 const double LIFT_POT_OFFSET_4      = 1800.0;
 //Lift Joint 1 Locations
-const double LIFT_POS_STOW_1        = 0.50; //stow lift
-const double LIFT_POS_LHF_1         = 0.50; //low hatch front
-const double LIFT_POS_LCF_1         = 0.55; //low cargo front
-const double LIFT_POS_MHF_1         = 0.70; //mid hatch front
-const double LIFT_POS_MCF_1         = 0.75; //mid cargo front
-const double LIFT_POS_HHF_1         = 0.80; //high hatch front
-const double LIFT_POS_HCF_1         = 0.85; //high cargo front
+const double LIFT_POS_STOW_1        = 0.40; //stow lift
+const double LIFT_POS_LHF_1         = 0.45; //low hatch front
+const double LIFT_POS_LCF_1         = 0.47; //low cargo front
+const double LIFT_POS_MHF_1         = 0.55; //mid hatch front
+const double LIFT_POS_MCF_1         = 0.57; //mid cargo front
+const double LIFT_POS_HHF_1         = 0.65; //high hatch front
+const double LIFT_POS_HCF_1         = 0.67; //high cargo front
 //Lift Joint 2 Locations
 const double LIFT_POS_STOW_2        = 0.50; //stow lift
 const double LIFT_POS_LHF_2         = 0.50; //low hatch front

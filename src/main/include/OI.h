@@ -31,6 +31,7 @@ class OI
 		std::shared_ptr<frc::JoystickButton> button_lift_lc_front; //low cargo front
 		std::shared_ptr<frc::JoystickButton> button_lift_mc_front; //mid cargo front
 		std::shared_ptr<frc::JoystickButton> button_lift_hc_front; //high cargo front
+		std::shared_ptr<frc::JoystickButton> button_lift_stow; //stow lift
 		std::shared_ptr<frc::JoystickButton> button_lift_lh_back; //low hatch back
 		std::shared_ptr<frc::JoystickButton> button_lift_mh_back; //mid hatch back
 		std::shared_ptr<frc::JoystickButton> button_lift_hh_back; //high hatch back
