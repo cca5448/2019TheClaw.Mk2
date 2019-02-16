@@ -42,23 +42,35 @@ double OI::DeadZone(double uval)
 
 double OI::SteeringDeadZone(double uval)
 {
+	//This uses math to ramp the throttle starting at the deadzone edge, rather than
+	//just starting at the value of the end of the deadzone
 	double f_absval, f_offset, f_uval, f_pow;
-    //if we are less than 0, then save an inversion for the end
 	double invert = 1.0;
 	if (uval < 0) invert = -1.0;
-	//get the abs of the value for maths
 	f_absval = fabs(uval);
-
-	f_offset = 1-JOYSTICK_DEADZONE;
-	f_uval = f_absval-1;
-	//divide by the offset (1-deadzone)
-	f_uval /= f_offset;
-	//add 1
-	f_uval += 1.0;
-
-	//now make it either positive or negative depending on what came in
+	//SmartDashboard::PutNumber("f_absval",f_absval);
+	f_offset = 1+JOYSTICK_DEADZONE_TURN;
+	//SmartDashboard::PutNumber("f_offset",f_offset);
+	f_uval = f_absval;
+	f_uval *= f_offset;
+	//SmartDashboard::PutNumber("f_uval1",f_uval);
+	f_uval -= JOYSTICK_DEADZONE_TURN;
+	//SmartDashboard::PutNumber("f_uval2",f_uval);
+	f_pow = f_offset * JOYSTICK_RAMP_POWER_TURN;
+	//SmartDashboard::PutNumber("f_pow",f_pow);
+	f_uval = pow(f_uval,f_pow);
+	//SmartDashboard::PutNumber("f_uval3",f_uval);
 	f_uval *= invert;
+	//SmartDashboard::PutNumber("uval",f_uval);
 	return f_uval;
+
+	/*
+	 * https://www.desmos.com/calculator
+	 * y=(xn-a)^mn //formula for speed ramp
+	 * m=1.5 //ramp power of 1.5 (normal 1.1-1.8)
+	 * a=0.3 //deadzone of 0.3
+	 * n=1+a (multiplier to account for dead zone)
+	 */
 }
 
 double OI::RampingDeadZone(double uval)
@@ -182,7 +194,7 @@ double OI::GetStrafeAxis(){
 }
 double OI::GetTurnAxis(){
 	//method will return the turn axis
-	return (DeadZone(steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN)));
+	return (SteeringDeadZone(steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN)));
 	//return steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN);
 }
 double OI::GetLiftAxis(){

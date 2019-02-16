@@ -8,7 +8,6 @@ TeleopMecanumDrive::TeleopMecanumDrive()
 
 void TeleopMecanumDrive::Initialize()
 {
-	//Robot::drivebase->ResetGyro();
 }
 
 void TeleopMecanumDrive::Execute()

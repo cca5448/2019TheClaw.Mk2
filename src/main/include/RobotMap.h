@@ -5,6 +5,8 @@
 //Tuneables - Move this to network tables
 const float JOYSTICK_DEADZONE = 0.25; //dead zone
 const float JOYSTICK_RAMP_POWER = 1.0; //speed ramp power - this is for ramping dead zone
+const float JOYSTICK_DEADZONE_TURN = 0.4; //dead zone for turn
+const float JOYSTICK_RAMP_POWER_TURN = 0.9; //speed ramp power for turn
 const float CLIMB_MOT_SPEED_CLIMB = 0.5; //speed of climber climb motor
 const float CLIMB_MOT_SPEED_DRIVE = 0.5; //speed of climber drive motor
 const double LIFT_JOINT_KP = 5.0; //PID P proportional constant for lift joints
@@ -63,7 +65,7 @@ const unsigned short DRIVE_MOT_RR			= 4; //Right Rear
 
 //LIFT SYSTEM
 //Lift System Motor Controllers CAN IDs - Talon SRX
-const unsigned short LIFT_MOT_1       = 10; //Lowest joint
+const unsigned short LIFT_MOT_1       = 9; //Lowest joint
 const unsigned short LIFT_MOT_2       = 11; 
 const unsigned short LIFT_MOT_3       = 12; 
 const unsigned short LIFT_MOT_4       = 13; //Highest joint
