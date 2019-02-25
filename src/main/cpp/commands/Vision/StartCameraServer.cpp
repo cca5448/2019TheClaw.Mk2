@@ -19,7 +19,7 @@ void StartCameraServer::Execute()
 
 bool StartCameraServer::IsFinished()
 {
-	return false;
+	return true;
 }
 
 void StartCameraServer::End()

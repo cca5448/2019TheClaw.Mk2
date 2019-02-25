@@ -25,7 +25,7 @@ Vision::Vision() : Subsystem("Vision")
 
 void Vision::InitDefaultCommand()
 {
-	SetDefaultCommand(new StartCameraServer());
+	//SetDefaultCommand(new StartCameraServer());
 }
 
 void Vision::MultiCamServer()
