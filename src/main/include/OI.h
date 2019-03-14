@@ -25,19 +25,12 @@ class OI
 
 		//create buttons for control
 		//lift
-		std::shared_ptr<frc::JoystickButton> button_lift_lh_front; //low hatch front
-		std::shared_ptr<frc::JoystickButton> button_lift_mh_front; //mid hatch front
-		std::shared_ptr<frc::JoystickButton> button_lift_hh_front; //high hatch front
-		std::shared_ptr<frc::JoystickButton> button_lift_lc_front; //low cargo front
-		std::shared_ptr<frc::JoystickButton> button_lift_mc_front; //mid cargo front
-		std::shared_ptr<frc::JoystickButton> button_lift_hc_front; //high cargo front
-		std::shared_ptr<frc::JoystickButton> button_lift_stow; //stow lift
-		std::shared_ptr<frc::JoystickButton> button_lift_lh_back; //low hatch back
-		std::shared_ptr<frc::JoystickButton> button_lift_mh_back; //mid hatch back
-		std::shared_ptr<frc::JoystickButton> button_lift_hh_back; //high hatch back
-		std::shared_ptr<frc::JoystickButton> button_lift_lc_back; //low cargo back
-		std::shared_ptr<frc::JoystickButton> button_lift_mc_back; //mid cargo back
-		std::shared_ptr<frc::JoystickButton> button_lift_hc_back; //high cargo back
+		std::shared_ptr<frc::JoystickButton> button_lift_up; //lift up
+		std::shared_ptr<frc::JoystickButton> button_lift_down; //lift down
+		//wrist
+		std::shared_ptr<frc::JoystickButton> button_wrist_up; //wrist up
+		std::shared_ptr<frc::JoystickButton> button_wrist_down; //wrist down
+		std::shared_ptr<frc::JoystickButton> button_wrist_stow; //wrist stow
 		//claw
 		std::shared_ptr<frc::JoystickButton> button_claw_fo; //full open
 		std::shared_ptr<frc::JoystickButton> button_claw_cc; //capture cargo
@@ -47,9 +40,6 @@ class OI
 		std::shared_ptr<frc::JoystickButton> button_claw_stop; //stop
 		//other
 		std::shared_ptr<frc::JoystickButton> button_cam_aa; //aim assist
-		std::shared_ptr<frc::JoystickButton> button_end_up; //extend both sides
-		std::shared_ptr<frc::JoystickButton> button_end_dn; //retract close side
-		std::shared_ptr<frc::JoystickButton> button_end_dnall; //retract both sides
 		std::shared_ptr<frc::JoystickButton> button_light_mu; //light mode up
 		std::shared_ptr<frc::JoystickButton> button_light_md; //light mode down
 };

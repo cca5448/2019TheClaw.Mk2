@@ -3,8 +3,8 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 Claw::Claw() : frc::Subsystem("Claw"){
-	claw_motor.reset(new frc::Servo(CLAW_MOT_1));
-    claw_pot.reset(new frc::AnalogPotentiometer(CLAW_POT_1,100,CLAW_POT_OFFSET_1));
+	claw_motor.reset(new frc::Servo(CLAW_MOT));
+    claw_pot.reset(new frc::AnalogPotentiometer(CLAW_POT,100,CLAW_POT_OFFSET));
 }
 
 void Claw::InitDefaultCommand(){

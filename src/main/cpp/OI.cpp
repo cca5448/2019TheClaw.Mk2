@@ -10,26 +10,13 @@
 #include "commands/Claw/ClawFullClose.h"
 #include "commands/Claw/ClawFullOpen.h"
 #include "commands/Claw/ClawStop.h"
-//climber
-//#include "commands/Climber/StartClimberUp.h"
-//#include "commands/Climber/StartClimberDown.h"
-//#include "commands/Climber/StopClimber.h"
 //lift
-#include "commands/Lift/commandgroups/MoveLiftToHCF.h"
-#include "commands/Lift/commandgroups/MoveLiftToHHF.h"
-#include "commands/Lift/commandgroups/MoveLiftToMCF.h"
-#include "commands/Lift/commandgroups/MoveLiftToMHF.h"
-#include "commands/Lift/commandgroups/MoveLiftToLCF.h"
-#include "commands/Lift/commandgroups/MoveLiftToLHF.h"
-/*
-#include "commands/Lift/commandgroups/MoveLiftToHCB.h"
-#include "commands/Lift/commandgroups/MoveLiftToHHB.h"
-#include "commands/Lift/commandgroups/MoveLiftToMCB.h"
-#include "commands/Lift/commandgroups/MoveLiftToMHB.h"
-#include "commands/Lift/commandgroups/MoveLiftToLCB.h"
-#include "commands/Lift/commandgroups/MoveLiftToLHB.h"
-*/
-#include "commands/Lift/commandgroups/StowLift.h"
+#include "commands/Lift/MoveLiftUp.h"
+#include "commands/Lift/MoveLiftDown.h"
+//wrist
+#include "commands/Wrist/MoveWristUp.h"
+#include "commands/Wrist/MoveWristDown.h"
+#include "commands/Wrist/MoveWristStow.h"
 
 OI::OI()
 {
@@ -42,21 +29,13 @@ OI::OI()
 	l_buttons.reset(new frc::Joystick(JOY_LEFT));
 
 	//left button definitions
-	//front
-	button_lift_hc_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_HCF));
-	button_lift_hh_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_HHF));
-	button_lift_mc_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_MCF));
-	button_lift_mh_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_MHF));
-	button_lift_lc_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_LCF));
-	button_lift_lh_front.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_LHF));
-	button_lift_stow.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_STOW));
-	//back
-	//button_lift_hc_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_HCB));
-	//button_lift_hh_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_HHB));
-	//button_lift_mc_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_MCB));
-	//button_lift_mh_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_MHB));
-	//button_lift_lc_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_LCB));
-	//button_lift_lh_back.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_LHB));
+	//lift
+	button_lift_up.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_UP));
+	button_lift_down.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_DOWN));
+	//wrist
+	button_wrist_up.reset(new frc::JoystickButton(l_buttons.get(),BTN_WRIST_UP));
+	button_wrist_down.reset(new frc::JoystickButton(l_buttons.get(),BTN_WRIST_DOWN));
+	button_wrist_stow.reset(new frc::JoystickButton(l_buttons.get(),BTN_WRIST_STOW));
 	//other
 	button_cam_aa.reset(new frc::JoystickButton(l_buttons.get(),BTN_CAM_AA));
 
@@ -68,30 +47,18 @@ OI::OI()
 	button_claw_fo.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_FO));
 	button_claw_ehr.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_EHR));
 	button_claw_stop.reset(new frc::JoystickButton(r_buttons.get(),BTN_CLAW_STOP));
-	//climber
-	button_end_dn.reset(new frc::JoystickButton(r_buttons.get(),BTN_ENDGAME_DN));
-	button_end_dnall.reset(new frc::JoystickButton(r_buttons.get(),BTN_ENDGAME_DNALL));
-	button_end_up.reset(new frc::JoystickButton(r_buttons.get(),BTN_ENDGAME_UP));
 	//lighting
 	button_light_mu.reset(new frc::JoystickButton(r_buttons.get(),BTN_LIGHT_MODEUP));
 	button_light_md.reset(new frc::JoystickButton(r_buttons.get(),BTN_LIGHT_MODEDN));
 
 	//assign commands to buttons
-	//lift front
-	button_lift_hc_front->WhenPressed(new MoveLiftToHCF());
-	button_lift_hh_front->WhenPressed(new MoveLiftToHHF());
-	button_lift_mc_front->WhenPressed(new MoveLiftToMCF());
-	button_lift_mh_front->WhenPressed(new MoveLiftToMHF());
-	button_lift_lc_front->WhenPressed(new MoveLiftToLCF());
-	button_lift_lh_front->WhenPressed(new MoveLiftToLHF());
-	button_lift_stow->WhenPressed(new StowLift());
-	//lift back
-	//button_lift_hc_back->WhenPressed(new MoveLiftToHCB());
-	//button_lift_hh_back->WhenPressed(new MoveLiftToHHB());
-	//button_lift_mc_back->WhenPressed(new MoveLiftToMCB());
-	//button_lift_mh_back->WhenPressed(new MoveLiftToMHB());
-	//button_lift_lc_back->WhenPressed(new MoveLiftToLCB());
-	//button_lift_lh_back->WhenPressed(new MoveLiftToLHB());
+	//lift
+	button_lift_up->WhileHeld(new MoveLiftUp());
+	button_lift_down->WhileHeld(new MoveLiftDown());
+	//wrist
+	button_wrist_up->WhenPressed(new MoveWristUp());
+	button_wrist_down->WhenPressed(new MoveWristDown());
+	button_wrist_stow->WhenPressed(new MoveWristStow());
 	//claw
 	button_claw_cc->WhenPressed(new ClawCaptureCargo());
 	button_claw_ch->WhenPressed(new ClawCaptureHatch());

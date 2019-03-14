@@ -14,24 +14,19 @@
 #include "subsystems/Claw.h"
 //#include "subsystems/Climber.h"
 #include "subsystems/Drivetrain.h"
-#include "subsystems/LiftJoint1.h"
-#include "subsystems/LiftJoint2.h"
-#include "subsystems/LiftJoint3.h"
-#include "subsystems/LiftJoint4.h"
-#include "subsystems/Sensors.h"
-#include "subsystems/Vision.h"
+#include "subsystems/Wrist.h"
+#include "subsystems/Lift.h"
+//#include "subsystems/Sensors.h"
+//#include "subsystems/Vision.h"
 
 class Robot : public frc::TimedRobot {
  public:
   static std::shared_ptr<Claw> claw;
-  //static std::shared_ptr<Climber> climber;
   static std::shared_ptr<Drivetrain> drivetrain;
-  static std::shared_ptr<LiftJoint1> liftjoint1;
-  static std::shared_ptr<LiftJoint2> liftjoint2;
-  static std::shared_ptr<LiftJoint3> liftjoint3;
-  static std::shared_ptr<LiftJoint4> liftjoint4;
-  static std::shared_ptr<Sensors> sensors;
-  static std::shared_ptr<Vision> vision;
+  static std::shared_ptr<Wrist> wrist;
+  static std::shared_ptr<Lift> lift;
+  //static std::shared_ptr<Sensors> sensors;
+  //static std::shared_ptr<Vision> vision;
   
   static std::unique_ptr<OI> oi;
 

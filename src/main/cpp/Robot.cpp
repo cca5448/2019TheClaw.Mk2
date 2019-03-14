@@ -13,38 +13,26 @@
 
 
 std::shared_ptr<Claw> Robot::claw;
-//std::shared_ptr<Climber> Robot::climber;
 std::shared_ptr<Drivetrain> Robot::drivetrain;
-std::shared_ptr<LiftJoint1> Robot::liftjoint1;
-std::shared_ptr<LiftJoint2> Robot::liftjoint2;
-std::shared_ptr<LiftJoint3> Robot::liftjoint3;
-std::shared_ptr<LiftJoint4> Robot::liftjoint4;
-std::shared_ptr<Sensors> Robot::sensors;
-std::shared_ptr<Vision> Robot::vision;
+std::shared_ptr<Wrist> Robot::wrist;
+std::shared_ptr<Lift> Robot::lift;
+//std::shared_ptr<Vision> Robot::vision;
 //OI after subsystems
 std::unique_ptr<OI> Robot::oi;
 
 void Robot::RobotInit() {
   //init all with nullptr in case we comment them out below
   claw = nullptr;
-  //climber = nullptr;
   drivetrain = nullptr;
-  liftjoint1 = nullptr;
-  liftjoint2 = nullptr;
-  liftjoint3 = nullptr;
-  liftjoint4 = nullptr;
-  sensors = nullptr;
-  vision = nullptr;
+  wrist = nullptr;
+  lift = nullptr;
+  //vision = nullptr;
   
 	claw.reset(new Claw());
-  //climber.reset(new Climber());
 	drivetrain.reset(new Drivetrain());
-  liftjoint1.reset(new LiftJoint1());
-  liftjoint2.reset(new LiftJoint2());
-  liftjoint3.reset(new LiftJoint3());
-  liftjoint4.reset(new LiftJoint4());
-  sensors.reset(new Sensors());
-  vision.reset(new Vision());
+  wrist.reset(new Wrist());
+  lift.reset(new Lift());
+  //vision.reset(new Vision());
   
   //OI always after subsystems so the command requires dont grab nullptr
 	oi.reset(new OI());
@@ -53,6 +41,9 @@ void Robot::RobotInit() {
 //  m_chooser.AddOption("My Auto", &m_myAuto);
 //  frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
   frc::SmartDashboard::PutString("Last Action","");
+
+	frc::CameraServer::GetInstance()->AddAxisCamera("Drive Cam","10.54.48.10");
+	frc::CameraServer::GetInstance()->AddAxisCamera("Claw Cam","10.54.48.11");
 }
 
 /**
@@ -77,12 +68,9 @@ void Robot::DisabledInit() {
 }
 
 void Robot::DisabledPeriodic() {
-  frc::SmartDashboard::PutNumber("Lift 1 Pos", (int) liftjoint1.get()->GetScaledPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 2 Pos", (int) liftjoint2.get()->GetScaledPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 3 Pos", (int) liftjoint3.get()->GetScaledPIDInput());
-  frc::SmartDashboard::PutNumber("Lift 4 Pos", (int) liftjoint4.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Wrist Pos", (int) wrist.get()->GetScaledPIDInput());
   frc::SmartDashboard::PutNumber("Claw Pos", (int) claw.get()->GetClawPotValue());
-  frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
+  //frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
 }
 
 /**
