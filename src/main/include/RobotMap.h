@@ -57,7 +57,7 @@ const unsigned short LIFT_MOT       = 7; //Talon SRX CAN ID for Lift Motor
 const unsigned short LIFT_SPEED     = 1.0; //Lift motor speed
 
 //WRIST SYSTEM
-const unsigned short WRIST_MOT      = 6; //Talon SRX CAN ID for Wrist Motor
+const unsigned short WRIST_MOT      = 7; //Talon SRX CAN ID for Wrist Motor
 const unsigned short WRIST_POT      = 1; //Potentiometer for wrist joint
 const double WRIST_MAX              = 0.75; //max wrist up
 const double WRIST_MIN              = 0.25; //min wrist down
