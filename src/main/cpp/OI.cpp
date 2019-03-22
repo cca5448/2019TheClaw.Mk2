@@ -84,17 +84,17 @@ OI::OI()
 
 double OI::GetThrottleAxis(){
 	//method will return the drive throttle axis
-	return (RampingDeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE)));
+	return (DeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE)));
 	//return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE);
 }
 double OI::GetStrafeAxis(){
 	//method will return the strafe axis
-	return (RampingDeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE)));
+	return (DeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE)));
 	//return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE);
 }
 double OI::GetTurnAxis(){
 	//method will return the turn axis
-	return (SteeringDeadZone(steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN)));
+	return (DeadZone(steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN)));
 	//return steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN);
 }
 double OI::GetLiftAxis(){
@@ -109,7 +109,7 @@ double OI::DeadZone(double uval)
 	if (uval >= -JOYSTICK_DEADZONE && uval <= JOYSTICK_DEADZONE) {
 		return 0.0;
 	}
-	return uval;
+	return uval * -1.0;
 }
 
 double OI::SteeringDeadZone(double uval)

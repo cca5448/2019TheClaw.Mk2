@@ -20,6 +20,6 @@ class Drivetrain : public frc::Subsystem
 	public:
 		Drivetrain();
 		void InitDefaultCommand() override;
-		void DriveMecanum(double throttle, double strafe, double turn, bool fieldCentric = 0);
+		void DriveMecanum(double throttle = 0.0, double strafe = 0.0, double turn = 0.0, bool fieldCentric = 0);
 		double GetGyroAngle();
 };
