@@ -57,9 +57,9 @@ const double WRIST_KD = 0.1; //0.2 //PID D derivative constant for wrist
 const double WRIST_TOLERANCE = 0.005; //PID Tolerance for wrist
 const unsigned short WRIST_MOT      = 6; //Talon SRX CAN ID for Wrist Motor
 const unsigned short WRIST_POT      = 1; //Potentiometer for wrist joint
-const double WRIST_MAX              = 0.92; //max wrist up
+const double WRIST_MAX              = 0.93; //max wrist up
 const double WRIST_MIN              = 0.35; //min wrist down
-const double WRIST_POS_STOW         = 0.91; //stow position for wrist
+const double WRIST_POS_STOW         = 0.93; //stow position for wrist
 const double WRIST_POS_UP           = 0.580; //up position for wrist
 const double WRIST_POS_DOWN         = 0.510; //down position for wrist
 

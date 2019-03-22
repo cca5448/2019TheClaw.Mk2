@@ -12,6 +12,7 @@ void TeleopMecanumDrive::Initialize()
 
 void TeleopMecanumDrive::Execute()
 {
+	printf("m.");
 	Robot::drivetrain->DriveMecanum(Robot::oi->GetThrottleAxis(), Robot::oi->GetStrafeAxis(), Robot::oi->GetTurnAxis(),true);
 }
 
