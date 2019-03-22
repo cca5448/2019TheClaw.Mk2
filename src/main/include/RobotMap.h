@@ -71,9 +71,9 @@ const unsigned short CLAW_MOT       = 0; //Claw Servo PWM ID
 const unsigned short CLAW_POT       = 0; //Claw Pot Analog ID
 const double CLAW_POT_OFFSET        = 0.0; //Claw Pot offset
 //Claw Sensor Pot Position Values
-const double CLAW_POT_VAL_EHR       = 0.240; //Emergency Hatch Release
-const double CLAW_POT_VAL_FC        = 0.258; //Full Closed
-const double CLAW_POT_VAL_CH        = 0.334; //Capture Hatch
-const double CLAW_POT_VAL_CC        = 0.506; //Capture Cargo
-const double CLAW_POT_VAL_FO        = 0.686; //Full Open
+const double CLAW_POT_VAL_EHR       = 0.630; //Emergency Hatch Release
+const double CLAW_POT_VAL_FC        = 0.590; //Full Closed
+const double CLAW_POT_VAL_CH        = 0.520; //Capture Hatch
+const double CLAW_POT_VAL_CC        = 0.240; //Capture Cargo
+const double CLAW_POT_VAL_FO        = 0.170; //Full Open
  
