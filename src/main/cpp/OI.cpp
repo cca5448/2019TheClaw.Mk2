@@ -13,6 +13,7 @@
 //lift
 #include "commands/Lift/MoveLiftUp.h"
 #include "commands/Lift/MoveLiftDown.h"
+#include "commands/Lift/StopLift.h"
 //wrist
 #include "commands/Wrist/MoveWristUp.h"
 #include "commands/Wrist/MoveWristDown.h"
@@ -55,8 +56,13 @@ OI::OI()
 	//lift
 	button_lift_up->WhileHeld(new MoveLiftUp());
 	button_lift_down->WhileHeld(new MoveLiftDown());
+	//button_lift_up->WhenPressed(new MoveLiftUp());
+	//button_lift_up->WhenReleased(new StopLift());
+	//button_lift_down->WhenPressed(new MoveLiftDown());
+	//button_lift_down->WhenReleased(new StopLift());
 	//wrist
-	button_wrist_up->WhenPressed(new MoveWristUp());
+	button_wrist_up->WhileHeld(new MoveWristStow());
+	button_wrist_up->WhenReleased(new MoveWristUp());
 	button_wrist_down->WhenPressed(new MoveWristDown());
 	button_wrist_stow->WhenPressed(new MoveWristStow());
 	//claw

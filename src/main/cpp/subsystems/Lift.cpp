@@ -1,7 +1,7 @@
 #include "RobotMap.h"
 #include "subsystems/Lift.h"
 
-//#include "commands/Lift/LiftMover.h" //For reading joystick axis and taking action for lift... 
+#include "commands/Lift/StopLift.h" 
 
 Lift::Lift() : frc::Subsystem("Lift"){
 	liftmotor = std::make_shared<WPI_TalonSRX>(LIFT_MOT);
@@ -11,9 +11,9 @@ Lift::Lift() : frc::Subsystem("Lift"){
 }
 
 void Lift::InitDefaultCommand(){
-	//SetDefaultCommand(new LiftMove());
+	SetDefaultCommand(new StopLift());
 }
 
 void Lift::SetLiftSpeed(double throttle){
-	liftmotor->Set(LIFT_SPEED);
+	liftmotor->Set(throttle);
 }

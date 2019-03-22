@@ -7,8 +7,8 @@ MoveLiftUp::MoveLiftUp(){
 }
 
 void MoveLiftUp::Initialize(){
-    printf("Lift: Move Up");
-	Robot::lift->SetLiftSpeed(LIFT_SPEED);
+    printf("Lift: Move Up\n");
+	Robot::lift->SetLiftSpeed(-LIFT_SPEED);
 }
 
 void MoveLiftUp::Execute(){
