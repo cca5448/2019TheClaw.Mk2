@@ -7,12 +7,6 @@ const float JOYSTICK_DEADZONE = 0.25; //dead zone
 const float JOYSTICK_RAMP_POWER = 1.0; //speed ramp power - this is for ramping dead zone
 const float JOYSTICK_DEADZONE_TURN = 0.4; //dead zone for turn
 const float JOYSTICK_RAMP_POWER_TURN = 0.9; //speed ramp power for turn
-const double WRIST_KP = 1.0; //PID P proportional constant for wrist
-const double WRIST_KI = 0.0; //PID I integral constant for wrist
-const double WRIST_KD = 0.0; //PID D derivative constant for wrist
-const double WRIST_TOLERANCE = 0.01; //PID Tolerance for wrist
-const double CLAW_POT_VAL_TOLERANCE = 0.003; //Pot tolerance for claw
-const double CLAW_MOT_SPEED = 0.50; //0.0-0.5 speed of claw servo
 
 //DRIVER STATION
 //Joysticks
@@ -57,23 +51,29 @@ const unsigned short LIFT_MOT       = 7; //Talon SRX CAN ID for Lift Motor
 const unsigned short LIFT_SPEED     = 1.0; //Lift motor speed
 
 //WRIST SYSTEM
-const unsigned short WRIST_MOT      = 7; //Talon SRX CAN ID for Wrist Motor
+const double WRIST_KP = 4.5; //PID P proportional constant for wrist
+const double WRIST_KI = 0.8; //PID I integral constant for wrist
+const double WRIST_KD = 0.2; //PID D derivative constant for wrist
+const double WRIST_TOLERANCE = 0.005; //PID Tolerance for wrist
+const unsigned short WRIST_MOT      = 6; //Talon SRX CAN ID for Wrist Motor
 const unsigned short WRIST_POT      = 1; //Potentiometer for wrist joint
-const double WRIST_MAX              = 0.75; //max wrist up
-const double WRIST_MIN              = 0.25; //min wrist down
-const double WRIST_POS_STOW         = 0.75; //stow position for wrist
-const double WRIST_POS_UP           = 0.55; //up position for wrist
-const double WRIST_POS_DOWN         = 0.35; //down position for wrist
+const double WRIST_MAX              = 0.92; //max wrist up
+const double WRIST_MIN              = 0.35; //min wrist down
+const double WRIST_POS_STOW         = 0.91; //stow position for wrist
+const double WRIST_POS_UP           = 0.600; //up position for wrist
+const double WRIST_POS_DOWN         = 0.510; //down position for wrist
 
 //MANIPULATOR
+const double CLAW_POT_VAL_TOLERANCE = 1.0; //Pot tolerance for claw
+const double CLAW_MOT_SPEED = 0.50; //0.0-0.5 speed of claw servo
 //Claw System Servo PWM IDs - Rev Smart Servo
 const unsigned short CLAW_MOT       = 0; //Claw Servo PWM ID
 const unsigned short CLAW_POT       = 0; //Claw Pot Analog ID
 const double CLAW_POT_OFFSET        = 0.0; //Claw Pot offset
 //Claw Sensor Pot Position Values
-const double CLAW_POT_VAL_EHR       = 0.630; //Emergency Hatch Release
-const double CLAW_POT_VAL_FC        = 0.590; //Full Closed
-const double CLAW_POT_VAL_CH        = 0.520; //Capture Hatch
-const double CLAW_POT_VAL_CC        = 0.240; //Capture Cargo
-const double CLAW_POT_VAL_FO        = 0.170; //Full Open
+const double CLAW_POT_VAL_EHR       = 61; //Emergency Hatch Release
+const double CLAW_POT_VAL_FC        = 59; //Full Closed
+const double CLAW_POT_VAL_CH        = 52; //Capture Hatch
+const double CLAW_POT_VAL_CC        = 24; //Capture Cargo
+const double CLAW_POT_VAL_FO        = 17; //Full Open
  

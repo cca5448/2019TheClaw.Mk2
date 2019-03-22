@@ -9,8 +9,8 @@ MoveWristDown::MoveWristDown(){
 
 void MoveWristDown::Initialize(){
     printf("Wrist: Move Wrist to %.2f\n",m_TARGET_POS);
-	Robot::wrist->Enable();
 	Robot::wrist->SetSetpoint(m_TARGET_POS);
+	Robot::wrist->Enable();
 }
 
 void MoveWristDown::Execute(){
@@ -22,6 +22,7 @@ bool MoveWristDown::IsFinished(){
 }
 
 void MoveWristDown::End(){
+   printf("Wrist: Done Moving Down\n");
 }
 
 void MoveWristDown::Interrupted(){

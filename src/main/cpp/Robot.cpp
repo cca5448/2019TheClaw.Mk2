@@ -70,7 +70,7 @@ void Robot::DisabledInit() {
 void Robot::DisabledPeriodic() {
   frc::SmartDashboard::PutNumber("Wrist Pos", (int) wrist.get()->GetScaledPIDInput());
   frc::SmartDashboard::PutNumber("Claw Pos", (int) claw.get()->GetClawPotValue());
-  //frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
+  frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
 }
 
 /**
@@ -115,6 +115,9 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
+  frc::SmartDashboard::PutNumber("Wrist Pos", (int) wrist.get()->GetScaledPIDInput());
+  frc::SmartDashboard::PutNumber("Claw Pos", (int) claw.get()->GetClawPotValue());
+  frc::SmartDashboard::PutNumber("Claw Speed", claw.get()->GetClawMotorSpeed());
 }
 
 void Robot::TestPeriodic() {
