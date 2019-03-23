@@ -51,17 +51,17 @@ const unsigned short LIFT_MOT       = 7; //Talon SRX CAN ID for Lift Motor
 const unsigned short LIFT_SPEED     = 1.0; //Lift motor speed
 
 //WRIST SYSTEM
-const double WRIST_KP = 4.0; //4.5 //PID P proportional constant for wrist
+const double WRIST_KP = 3.5; //4.5 //PID P proportional constant for wrist
 const double WRIST_KI = 0.0; //0.8 //PID I integral constant for wrist
-const double WRIST_KD = 0.1; //0.2 //PID D derivative constant for wrist
+const double WRIST_KD = 0.06; //0.2 //PID D derivative constant for wrist
 const double WRIST_TOLERANCE = 0.005; //PID Tolerance for wrist
 const unsigned short WRIST_MOT      = 6; //Talon SRX CAN ID for Wrist Motor
 const unsigned short WRIST_POT      = 1; //Potentiometer for wrist joint
 const double WRIST_MAX              = 0.93; //max wrist up
 const double WRIST_MIN              = 0.35; //min wrist down
-const double WRIST_POS_STOW         = 0.93; //stow position for wrist
-const double WRIST_POS_UP           = 0.580; //up position for wrist
-const double WRIST_POS_DOWN         = 0.510; //down position for wrist
+const double WRIST_POS_STOW         = 0.87; //stow position for wrist
+const double WRIST_POS_UP           = 0.49; //up position for wrist
+const double WRIST_POS_DOWN         = 0.43; //down position for wrist
 
 //MANIPULATOR
 const double CLAW_POT_VAL_TOLERANCE = 1.0; //Pot tolerance for claw
@@ -71,9 +71,9 @@ const unsigned short CLAW_MOT       = 0; //Claw Servo PWM ID
 const unsigned short CLAW_POT       = 0; //Claw Pot Analog ID
 const double CLAW_POT_OFFSET        = 0.0; //Claw Pot offset
 //Claw Sensor Pot Position Values
-const double CLAW_POT_VAL_EHR       = 61; //Emergency Hatch Release
-const double CLAW_POT_VAL_FC        = 59; //Full Closed
-const double CLAW_POT_VAL_CH        = 52; //Capture Hatch
-const double CLAW_POT_VAL_CC        = 24; //Capture Cargo
+const double CLAW_POT_VAL_EHR       = 63; //Emergency Hatch Release
+const double CLAW_POT_VAL_FC        = 63; //Full Closed
+const double CLAW_POT_VAL_CH        = 50; //Capture Hatch
+const double CLAW_POT_VAL_CC        = 26; //Capture Cargo
 const double CLAW_POT_VAL_FO        = 17; //Full Open
  
