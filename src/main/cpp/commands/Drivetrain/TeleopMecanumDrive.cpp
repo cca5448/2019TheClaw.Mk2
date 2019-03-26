@@ -13,7 +13,7 @@ void TeleopMecanumDrive::Initialize()
 void TeleopMecanumDrive::Execute()
 {
 	//printf("throt=%2f strf=%2f steer=%2f",Robot::oi->GetThrottleAxis(),Robot::oi->GetStrafeAxis(),Robot::oi->GetTurnAxis());
-	Robot::drivetrain->DriveMecanum(Robot::oi->GetThrottleAxis(), Robot::oi->GetStrafeAxis(), Robot::oi->GetTurnAxis(), false);
+	Robot::drivetrain->DriveMecanum(Robot::oi->GetThrottleAxis(), Robot::oi->GetStrafeAxis(), Robot::oi->GetTurnAxis());
 }
 
 bool TeleopMecanumDrive::IsFinished()

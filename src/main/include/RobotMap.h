@@ -7,6 +7,7 @@ const float JOYSTICK_DEADZONE = 0.25; //dead zone
 const float JOYSTICK_RAMP_POWER = 1.0; //speed ramp power - this is for ramping dead zone
 const float JOYSTICK_DEADZONE_TURN = 0.4; //dead zone for turn
 const float JOYSTICK_RAMP_POWER_TURN = 0.9; //speed ramp power for turn
+const bool DRIVE_FIELD_CENTRIC = true; //enable field centric driving
 
 //DRIVER STATION
 //Joysticks

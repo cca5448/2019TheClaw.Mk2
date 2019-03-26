@@ -37,8 +37,8 @@ void Drivetrain::InitDefaultCommand(){
 	SetDefaultCommand(new TeleopMecanumDrive());
 }
 
-void Drivetrain::DriveMecanum(double throttle, double strafe, double turn, bool fieldCentric){
-	if (fieldCentric){
+void Drivetrain::DriveMecanum(double throttle, double strafe, double turn){
+	if (DRIVE_FIELD_CENTRIC){
 		//field centric drive
 		robotDrive->DriveCartesian(strafe, throttle, turn, GetGyroAngle());
 		//robotDrive->DriveCartesian(strafe, -throttle, turn);
