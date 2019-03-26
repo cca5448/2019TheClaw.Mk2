@@ -1,12 +1,6 @@
 <xml version="1.0">
 <dashboard>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
-		<location x="578" y="2"/>
-		<width>573</width>
-		<height>429</height>
-		<property name="Camera Choice" value="Claw Cam"/>
-	</static-widget>
-	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
 		<location x="1" y="-1"/>
 		<width>576</width>
 		<height>431</height>
