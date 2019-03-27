@@ -2,6 +2,7 @@
 #include "OI.h"
 #include "RobotMap.h"
 #include <frc/WPILib.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 
 //claw
 #include "commands/Claw/ClawCaptureCargo.h"
@@ -84,17 +85,23 @@ OI::OI()
 
 double OI::GetThrottleAxis(){
 	//method will return the drive throttle axis
-	return (DeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE)));
+	double tval = RampingDeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE));
+	frc::SmartDashboard::PutNumber("Throttle Val", tval);
+	return (tval * 1.0);
 	//return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE);
 }
 double OI::GetStrafeAxis(){
 	//method will return the strafe axis
-	return (DeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE)));
+	double sval = RampingDeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE));
+	frc::SmartDashboard::PutNumber("Strafe Val", sval);
+	return (sval * -1.0);
 	//return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE);
 }
 double OI::GetTurnAxis(){
 	//method will return the turn axis
-	return (DeadZone(steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN)));
+	double val = DeadZone(steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN));
+	frc::SmartDashboard::PutNumber("Turn Val", val);
+	return (val * -1.0);
 	//return steer_stick->GetRawAxis(JOY_STEER_AXIS_TURN);
 }
 double OI::GetLiftAxis(){
@@ -109,32 +116,25 @@ double OI::DeadZone(double uval)
 	if (uval >= -JOYSTICK_DEADZONE && uval <= JOYSTICK_DEADZONE) {
 		return 0.0;
 	}
-	return uval * -1.0;
+	return uval;
 }
 
-double OI::SteeringDeadZone(double uval)
+double OI::SteeringDeadZone(double sval)
 {
 	//This uses math to ramp the throttle starting at the deadzone edge, rather than
 	//just starting at the value of the end of the deadzone
-	double f_absval, f_offset, f_uval, f_pow;
+	double f_absval, f_n, f_y, f_pow;
 	double invert = 1.0;
-	if (uval < 0) invert = -1.0;
-	f_absval = fabs(uval);
-	//SmartDashboard::PutNumber("f_absval",f_absval);
-	f_offset = 1+JOYSTICK_DEADZONE_TURN;
-	//SmartDashboard::PutNumber("f_offset",f_offset);
-	f_uval = f_absval;
-	f_uval *= f_offset;
-	//SmartDashboard::PutNumber("f_uval1",f_uval);
-	f_uval -= JOYSTICK_DEADZONE_TURN;
-	//SmartDashboard::PutNumber("f_uval2",f_uval);
-	f_pow = f_offset * JOYSTICK_RAMP_POWER_TURN;
-	//SmartDashboard::PutNumber("f_pow",f_pow);
-	f_uval = pow(f_uval,f_pow);
-	//SmartDashboard::PutNumber("f_uval3",f_uval);
-	f_uval *= invert;
-	//SmartDashboard::PutNumber("uval",f_uval);
-	return f_uval;
+	if (sval < 0) invert = -1.0;
+	f_absval = fabs(sval);
+	f_n = 1 + JOYSTICK_DEADZONE_TURN;
+	f_y = f_absval;
+	f_y *= f_n;
+	f_y -= JOYSTICK_DEADZONE_TURN;
+	f_pow = f_n * JOYSTICK_RAMP_POWER_TURN;
+	f_y = pow(f_y,f_pow);
+	f_y *= invert;
+	return f_y;
 
 	/*
 	 * https://www.desmos.com/calculator
@@ -149,25 +149,18 @@ double OI::RampingDeadZone(double uval)
 {
 	//This uses math to ramp the throttle starting at the deadzone edge, rather than
 	//just starting at the value of the end of the deadzone
-	double f_absval, f_offset, f_uval, f_pow;
+	double f_absval, f_n, f_y, f_pow;
 	double invert = 1.0;
 	if (uval < 0) invert = -1.0;
 	f_absval = fabs(uval);
-	//SmartDashboard::PutNumber("f_absval",f_absval);
-	f_offset = 1+JOYSTICK_DEADZONE;
-	//SmartDashboard::PutNumber("f_offset",f_offset);
-	f_uval = f_absval;
-	f_uval *= f_offset;
-	//SmartDashboard::PutNumber("f_uval1",f_uval);
-	f_uval -= JOYSTICK_DEADZONE;
-	//SmartDashboard::PutNumber("f_uval2",f_uval);
-	f_pow = f_offset * JOYSTICK_RAMP_POWER;
-	//SmartDashboard::PutNumber("f_pow",f_pow);
-	f_uval = pow(f_uval,f_pow);
-	//SmartDashboard::PutNumber("f_uval3",f_uval);
-	f_uval *= invert;
-	//SmartDashboard::PutNumber("uval",f_uval);
-	return f_uval;
+	f_n = 1 + JOYSTICK_DEADZONE;
+	f_y = f_absval;
+	f_y *= f_n;
+	f_y -= JOYSTICK_DEADZONE;
+	f_pow = f_n * JOYSTICK_RAMP_POWER;
+	f_y = pow(f_y,f_pow);
+	f_y *= invert;
+	return f_y;
 
 	/*
 	 * https://www.desmos.com/calculator

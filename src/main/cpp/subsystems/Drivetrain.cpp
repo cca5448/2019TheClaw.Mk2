@@ -48,6 +48,10 @@ void Drivetrain::DriveMecanum(double throttle, double strafe, double turn){
 	}
 }
 
+void Drivetrain::DriveMecanumStop(){
+	robotDrive->DriveCartesian(0.0, 0.0, 0.0);
+}
+
 double Drivetrain::GetGyroAngle(){
 	return gyro->GetAngle();
 }

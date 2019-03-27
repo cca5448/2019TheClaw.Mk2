@@ -23,7 +23,7 @@ bool TeleopMecanumDrive::IsFinished()
 
 void TeleopMecanumDrive::End()
 {
-	Robot::drivetrain->DriveMecanum(0,0,0,false); //sets the speed to 0 so doesnt drive or continue driving
+	Robot::drivetrain->DriveMecanumStop(); //sets the speed to 0 so doesnt drive or continue driving
 }
 
 void TeleopMecanumDrive::Interrupted()
