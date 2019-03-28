@@ -28,6 +28,7 @@ class OI
 		std::shared_ptr<frc::JoystickButton> button_lift_up; //lift up
 		std::shared_ptr<frc::JoystickButton> button_lift_down; //lift down
 		//wrist
+		std::shared_ptr<frc::JoystickButton> button_wrist_upup; //wrist upup
 		std::shared_ptr<frc::JoystickButton> button_wrist_up; //wrist up
 		std::shared_ptr<frc::JoystickButton> button_wrist_down; //wrist down
 		std::shared_ptr<frc::JoystickButton> button_wrist_stow; //wrist stow

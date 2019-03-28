@@ -17,6 +17,7 @@
 #include "commands/Lift/StopLift.h"
 //wrist
 #include "commands/Wrist/MoveWristUp.h"
+#include "commands/Wrist/MoveWristUpUp.h"
 #include "commands/Wrist/MoveWristDown.h"
 #include "commands/Wrist/MoveWristStow.h"
 
@@ -35,6 +36,7 @@ OI::OI()
 	button_lift_up.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_UP));
 	button_lift_down.reset(new frc::JoystickButton(l_buttons.get(),BTN_LIFT_DOWN));
 	//wrist
+	button_wrist_upup.reset(new frc::JoystickButton(l_buttons.get(),BTN_WRIST_UPUP));
 	button_wrist_up.reset(new frc::JoystickButton(l_buttons.get(),BTN_WRIST_UP));
 	button_wrist_down.reset(new frc::JoystickButton(l_buttons.get(),BTN_WRIST_DOWN));
 	button_wrist_stow.reset(new frc::JoystickButton(l_buttons.get(),BTN_WRIST_STOW));
@@ -62,6 +64,8 @@ OI::OI()
 	//button_lift_down->WhenPressed(new MoveLiftDown());
 	//button_lift_down->WhenReleased(new StopLift());
 	//wrist
+	button_wrist_upup->WhileHeld(new MoveWristStow());
+	button_wrist_upup->WhenReleased(new MoveWristUpUp());
 	button_wrist_up->WhileHeld(new MoveWristStow());
 	button_wrist_up->WhenReleased(new MoveWristUp());
 	button_wrist_down->WhenPressed(new MoveWristDown());
@@ -87,14 +91,14 @@ double OI::GetThrottleAxis(){
 	//method will return the drive throttle axis
 	double tval = RampingDeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE));
 	frc::SmartDashboard::PutNumber("Throttle Val", tval);
-	return (tval * 1.0);
+	return (tval * -1.0);
 	//return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_THROTTLE);
 }
 double OI::GetStrafeAxis(){
 	//method will return the strafe axis
 	double sval = RampingDeadZone(drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE));
 	frc::SmartDashboard::PutNumber("Strafe Val", sval);
-	return (sval * -1.0);
+	return (sval * 1.0);
 	//return drive_stick->GetRawAxis(JOY_DRIVE_AXIS_STRAFE);
 }
 double OI::GetTurnAxis(){

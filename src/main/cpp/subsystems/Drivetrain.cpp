@@ -12,9 +12,11 @@ Drivetrain::Drivetrain() : frc::Subsystem("Drivetrain"){
 	robotDrive = std::make_shared<MecanumDrive>(*lf, *lr, *rf, *rr);
 	robotDrive->SetExpiration(0.1);
 
-	//invert right side
+	//invert motors
 	//rf->SetInverted(true);
 	//rr->SetInverted(true);
+	//lf->SetInverted(true);
+	//lr->SetInverted(true);
 
 	try {
 		/***********************************************************************

@@ -26,6 +26,7 @@ const unsigned short JOY_ENDGAME_AXIS_STRAFE    = 0; //Strafe Axis during endgam
 //Buttons (Left Joystick)
 const unsigned short BTN_LIFT_UP        = 5; //Lift Up
 const unsigned short BTN_LIFT_DOWN      = 4; //Lift Down
+const unsigned short BTN_WRIST_UPUP     = 7; //Wrist UpUp
 const unsigned short BTN_WRIST_UP       = 6; //Wrist Up
 const unsigned short BTN_WRIST_DOWN     = 3; //Wrist Down
 const unsigned short BTN_WRIST_STOW     = 14; //Wrist stow (button 8+6)
@@ -62,6 +63,7 @@ const double WRIST_MAX              = 0.93; //max wrist up
 const double WRIST_MIN              = 0.35; //min wrist down
 const double WRIST_POS_STOW         = 0.87; //stow position for wrist
 const double WRIST_POS_UP           = 0.49; //up position for wrist
+const double WRIST_POS_UPUP         = 0.60; //up position for wrist
 const double WRIST_POS_DOWN         = 0.43; //down position for wrist
 
 //MANIPULATOR
